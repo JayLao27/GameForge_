@@ -33,7 +33,7 @@
                             <li class="nav-item"><a class="nav-link" href="#"><img style="width: 30px;" src="../../Images/Home/Search.png" alt="Search"></a></li>
                             <li class="nav-item"><a class="nav-link" href="../../Resources/views/Cart.php"><img style="width: 30px;" src="../../Images/Home/Cart.png" alt="Cart"></a></li>
                             <li class="nav-item"><a class="nav-link" href="../../Resources/views/Profile.php"><img style="width: 30px;" src="../../Images/Home/Profile.png" alt="Profile"></a></li>
-                            <a class="text-decoration-none mt-2" href="#"> <p style="font-family: Quicksand; font-weight: bolder; color: black; margin-top: 3px;">Sign In</p></a>
+                            <a class="text-decoration-none mt-2" href="../../Resources/views/SignIn.php"> <p style="font-family: Quicksand; font-weight: bolder; color: black; margin-top: 3px;">Sign In</p></a>
                     </div>
                 </ul>
             </div>
