@@ -91,6 +91,7 @@
 .Card-Keyboard-Mouse-Laptop p{
     font-family: Quicksand;
     font-weight: bold;
+    
 }
 
 #Buttons-Keyboard-Mouse-Laptop{  
@@ -109,8 +110,13 @@
     font-family: Poppins;
     
 }
+.Card-Keyboard-Mouse-Laptop a {
+    text-decoration: none;
+    color: black;
+}
+
 .Card-Keyboard-Mouse-Laptop:hover {
-    background: #8e8989;
+    background: #460d0d;
     color: rgb(255, 255, 255);
 }
 

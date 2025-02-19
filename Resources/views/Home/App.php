@@ -65,9 +65,9 @@
             <h1 style="font-family: Quicksand;" class="fw-bold">Browse By Category</h1>
             <div class="container justify-content-center gap-30" id="Card">
                 <ul>    
-                    <li> <a href="../../Resources/views/Product/Keyboard-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Keyboard.png" alt="Keyboard"><p>Keyboard</p></div></li></a>
-                    <li> <a href="../../Resources/views/Product/Mouse-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Mouse.png" alt="Mouse"><p>Mouse</p></div></li></a>
-                    <li> <a href="../../Resources/views/Product/Laptop-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Laptop.png" alt="Laptop"><p>Laptop</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Keyboard-web.php">  <div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Keyboard.png" alt="Keyboard"><p>Keyboard</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Mouse-web.php">     <div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Mouse.png" alt="Mouse">      <p>Mouse</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Laptop-web.php">    <div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Laptop.png" alt="Laptop">    <p>Laptop</p></div></li></a>
                 </ul>
             </div>
         </div>
@@ -86,7 +86,7 @@
                         <div class="countdown-box" id="hours">00 <br> <span>Hours</span></div>
                         <div class="countdown-box" id="minutes">00 <br> <span>Minutes</span></div>
                         <div class="countdown-box" id="seconds">00 <br> <span>Seconds</span></div>
-                        <script src="../../Resources/JS/App.js"></script>
+                        <script src="../../../Resources/JS/App.js"></script>
                     </div>
 
     
