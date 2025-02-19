@@ -26,14 +26,14 @@
                     <ul id="Nav" class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="#Product">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#Shop">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../Resources/views/About.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../Resources/views/Contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../Resources/views/Navbutton/About.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../Resources/views/Navbutton/Contact.php">Contact</a></li>
                         
                         <div class="Navphoto-Buttons d-flex align-items-right text-right">
-                            <li class="nav-item"><a class="nav-link" href="#"><img style="width: 30px;" src="../../Images/Home/Search.png" alt="Search"></a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Resources/views/Cart.php"><img style="width: 30px;" src="../../Images/Home/Cart.png" alt="Cart"></a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../Resources/views/Profile.php"><img style="width: 30px;" src="../../Images/Home/Profile.png" alt="Profile"></a></li>
-                            <a class="text-decoration-none mt-2" href="../../Resources/views/SignIn.php"> <p style="font-family: Quicksand; font-weight: bolder; color: black; margin-top: 3px;">Sign In</p></a>
+                            <li class="nav-item"><a class="nav-link" href="#"><img style="width: 30px;" src="../../../Images/Home/Search.png" alt="Search"></a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../../Resources/views/Navbutton/Cart.php"><img style="width: 30px;" src="../../../Images/Home/Cart.png" alt="Cart"></a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../../Resources/views/Navbutton/Profile.php"><img style="width: 30px;" src="../../../Images/Home/Profile.png" alt="Profile"></a></li>
+                            <a class="text-decoration-none mt-2" href="../../../Resources/views/Navbutton/SignIn.php"> <p style="font-family: Quicksand; font-weight: bolder; color: black; margin-top: 3px;">Sign In</p></a>
                     </div>
                 </ul>
             </div>
@@ -51,7 +51,7 @@
                 </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">
-                    <img src="../../Images/Home/Headset.png" class="img-fluid" alt="HyperX Gaming Headset">
+                    <img src="../../../Home/Headset.png" class="img-fluid" alt="HyperX Gaming Headset">
                 </div>
             </div>
         </div>
@@ -65,9 +65,9 @@
             <h1 style="font-family: Quicksand;" class="fw-bold">Browse By Category</h1>
             <div class="container justify-content-center gap-30" id="Card">
                 <ul>    
-                    <li> <a href="../../Resources/views/Product/Keyboard-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../Images/Shop/Keyboard.png" alt="Keyboard"><p>Keyboard</p></div></li></a>
-                    <li> <a href="../../Resources/views/Product/Mouse-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../Images/Shop/Mouse.png" alt="Mouse"><p>Mouse</p></div></li></a>
-                    <li> <a href="../../Resources/views/Product/Laptop-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../Images/Shop/Laptop.png" alt="Laptop"><p>Laptop</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Keyboard-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Keyboard.png" alt="Keyboard"><p>Keyboard</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Mouse-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Mouse.png" alt="Mouse"><p>Mouse</p></div></li></a>
+                    <li> <a href="../../Resources/views/Product/Laptop-web.php"><div class="Card-Keyboard-Mouse-Laptop"><img src="../../../Images/Shop/Laptop.png" alt="Laptop"><p>Laptop</p></div></li></a>
                 </ul>
             </div>
         </div>
@@ -95,7 +95,7 @@
     
                 <div class="col-lg-6 position-relative">
                     <div id="Gaming-Image">
-                        <img id="Laptop-image" src="../../Images/Shop/laptop-Enhance.png" alt="Gaming Laptop">
+                        <img id="Laptop-image" src="../../../Images/Shop/laptop-Enhance.png" alt="Gaming Laptop">
                     </div>
                 </div>
             </div> 
@@ -111,7 +111,7 @@
                        <a href="#" class="text-decoration-none text-dark">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="../../Images/Home/Headset.png" alt="iPhone" class="img-fluid">
+                                    <img src="../../../Images/Home/Headset.png" alt="Headset" class="img-fluid">
                                 </div>
                                 <div class="product-info">
                                     <p class="fw-bold">HyperX Gaming
