@@ -51,7 +51,7 @@
                 </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">
-                    <img src="../../../Home/Headset.png" class="img-fluid" alt="HyperX Gaming Headset">
+                    <img src="../../../Images/Home/Headset.png"" class="img-fluid" alt="HyperX Gaming Headset">
                 </div>
             </div>
         </div>
