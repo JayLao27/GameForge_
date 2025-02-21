@@ -78,11 +78,11 @@
             <div class="row align-items-center">
                
                 <div class="col-lg-6">
-                    <h1 class="gaming-title">Enhance your <br>Gaming Experience</h1>
+                    <h1 class="gaming-title left-side">Enhance your <br>Gaming Experience</h1>
     
                    
                    <div id="Countdown">
-                        <div class="countdown-box" id="days">00 <br> <span>Days</span></div>
+                        <div class="countdown-box ml-2" id="days">00 <br> <span>Days</span></div>
                         <div class="countdown-box" id="hours">00 <br> <span>Hours</span></div>
                         <div class="countdown-box" id="minutes">00 <br> <span>Minutes</span></div>
                         <div class="countdown-box" id="seconds">00 <br> <span>Seconds</span></div>
