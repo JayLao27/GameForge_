@@ -16,7 +16,7 @@
         <h1 class="text-2xl font-semibold mt-4">Create an Account</h1>
     </div>
     <div class="flex items-start justify-start w-full max-w-[590px] px-10 pb-5">
-        <form class="flex flex-wrap flex-col justify-between h-full w-full max-w-[450px] min-w-0 max-h-[700px] box-border">
+    <form action="/src/Main_Pages/signup_process.php" method="POST" class="flex flex-wrap flex-col justify-between h-full w-full max-w-[450px] min-w-0 max-h-[700px] box-border">
             <label class="font-semibold text-lg opacity-75 py-2" for="firstname">First Name <span class="text-red-500 pl-1">*</span></label>
             <input class="flex flex-wrap border border-black rounded-md bg-gray-100 py-2 px-1" type="text" name="firstname" id="firstname" required>
             
@@ -40,7 +40,7 @@
                 </button>
             </div>
             <div class="flex justify-center w-full">
-                <button class="text-white text-lg font-medium border-none rounded-full bg-blue-600 w-full max-w-[355px] mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out" name="signUp" type="button">Sign Up</button>
+                <button class="text-white text-lg font-medium border-none rounded-full bg-blue-600 w-full max-w-[355px] mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out" name="signUp" type="submit">Sign Up</button>
             </div>
         </form>
     </div>
@@ -54,3 +54,42 @@
     </div>
     </section>
 </body>
+
+<?php
+include '../../dbconnection/dbconnect.php';
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = trim($_POST['firstname']);
+    $lastname = trim($_POST['lastname']);
+    $email = trim($_POST['email']);
+    $contactnum = trim($_POST['contactnum']);
+    $address = trim($_POST['address']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    
+    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        echo "Email already in use.";
+        exit;
+    }
+    $stmt->close();
+
+    
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, contactnum, address, password) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $firstname, $lastname, $email, $contactnum, $address, $password);
+
+    if ($stmt->execute()) {
+        header("Location: signIn.php?success=1");
+        exit;
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+    $conn->close();
+}
+?>

@@ -42,3 +42,9 @@
         </section>
     </body> 
 </html>
+
+<?php
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    echo "<p class='text-green-600'>Account created successfully. Please log in.</p>";
+}
+?>
