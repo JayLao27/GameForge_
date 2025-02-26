@@ -16,7 +16,7 @@
         <h1 class="text-2xl font-semibold mt-4">Create an Account</h1>
     </div>
     <div class="flex items-start justify-start w-full max-w-[590px] px-10 pb-5">
-    <form action="/src/Main_Pages/signup_process.php" method="POST" class="flex flex-wrap flex-col justify-between h-full w-full max-w-[450px] min-w-0 max-h-[700px] box-border">
+    <form action="../../Backend/authentication.php" method="POST" class="flex flex-wrap flex-col justify-between h-full w-full max-w-[450px] min-w-0 max-h-[700px] box-border">
             <label class="font-semibold text-lg opacity-75 py-2" for="firstname">First Name <span class="text-red-500 pl-1">*</span></label>
             <input class="flex flex-wrap border border-black rounded-md bg-gray-100 py-2 px-1" type="text" name="firstname" id="firstname" required>
             
@@ -56,40 +56,51 @@
 </body>
 
 <?php
+// Include the database connection file
 include '../../dbconnection/dbconnect.php';
 
-
+// Check if the request method is POST (form submission)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve and sanitize input data
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
     $email = trim($_POST['email']);
     $contactnum = trim($_POST['contactnum']);
     $address = trim($_POST['address']);
+    
+    // Hash the password for security before storing it in the database
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    
+    // Check if the email already exists in the database
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
     
+    // If the email is already registered, stop the registration process
     if ($stmt->num_rows > 0) {
         echo "Email already in use.";
         exit;
     }
     $stmt->close();
 
-    
+    // Insert the new user into the database
     $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, contactnum, address, password) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $firstname, $lastname, $email, $contactnum, $address, $password);
 
+    // Execute the statement and check if the user was added successfully
     if ($stmt->execute()) {
+        // Redirect to the sign-in page with a success message
         header("Location: signIn.php?success=1");
         exit;
     } else {
+        // Display an error message if insertion fails
         echo "Error: " . $stmt->error;
     }
+
+    // Close the statement and database connection
     $stmt->close();
     $conn->close();
 }
 ?>
+
