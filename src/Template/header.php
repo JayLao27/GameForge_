@@ -14,7 +14,7 @@
     <div class="max-w-[1500px] mx-auto flex items-center justify-between px-2 py-4 gap-x-30">
         
           <a href="/src/Main_Pages/home.php" class="flex items-end px-4">
-            <img src="/Resources/Images/GameforgeLogo.png" alt="GameForge Logo" class="h-10 w-10 mr-4"> 
+            <img src="/Resources/Images/Home/GameforgeLogo.png" alt="GameForge Logo" class="h-10 w-10 mr-4"> 
             <span class="text-[23px] font-blackhan text-[#4388AF]">GameForge</span>
           </a>
 

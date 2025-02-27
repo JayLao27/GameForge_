@@ -44,7 +44,7 @@ session_start();
                 </div>
 
                 <div class="w-1/2 flex justify-center">
-                    <img src="/Resources/Images/Headset.png" alt="HyperX Headset" class="w-150 h-auto">
+                    <img src="/Resources/Images/Home/Headset.png" alt="HyperX Headset" class="w-150 h-auto">
                 </div>
             </div>
         </section>
@@ -55,19 +55,19 @@ session_start();
         <h2 class="text-2xl text-left font-semibold mb-8 mt-5">Browse by Category</h2>
         <!-- browse sect -->
         <section class="text-center w-2xl">
-            <div class="grid grid-cols-3 gap-0 justify-center items-center">
+           <a href=""> <div class="grid grid-cols-3 gap-0 justify-center items-center">
                 <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
+                    <img src="/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
                     <p class="mt-2 font-medium">Keyboard</p>
-                </div>
-                <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
+                </div></a>
+                <a href="">  <div class="border p-2 rounded-lg w-max mx-auto">
+                    <img src="/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
                     <p class="mt-2 font-medium">Mouse</p>
-                </div>
-                <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Keyboard 2.png" alt="Keyboard" class="w-32 h-auto mx-auto">
+                </div></a>
+                <a href="">   <div class="border p-2 rounded-lg w-max mx-auto">
+                    <img src="/Resources/Images/Home/Keyboard 2.png" alt="Keyboard" class="w-32 h-auto mx-auto">
                     <p class="mt-2 font-medium">Keyboard</p>
-                </div>
+                </div></a>
             </div>
         </section>
 
@@ -98,7 +98,7 @@ session_start();
                 </button>
             </div>
             <div class="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-                <img src="/Resources/Images/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
+                <img src="/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
             </div>
         </section>
     </div>
