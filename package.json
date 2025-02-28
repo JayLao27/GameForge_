@@ -10,7 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.7",
-    "tailwindcss": "^4.0.7"
+    "@tailwindcss/cli": "^4.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayLao27/GameForge_.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JayLao27/GameForge_/issues"
+  },
+  "homepage": "https://github.com/JayLao27/GameForge_#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.0.9"
   }
 }

@@ -3,49 +3,27 @@ session_start();
 include '../dbconnection/dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $contactnum = $_POST['contactnum'];
-    $address = $_POST['address'];
-    $reg_confirm_password = $_POST['password'];
+    $password = $_POST['password'];
 
-    if ($password!= $reg_confirm_password) {
-        echo "<script>alert('Password and Confirm Password do not match');</script>";
-        exit();
-    }
-    $hashed_password = password_hash($reg_password, PASSWORD_DEFAULT);
-
-
-    
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
-
+    
     if ($stmt->num_rows > 0) {
-        echo "Email already in use.";
-        exit;
-    }
-   
-   
-    // Query to insert the user
-    $sql = "INSERT INTO users (firstname, lastname, email, contactnum, address, password) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    
-    if ($stmt === false) {
-        die("Error preparing statement: " . $conn->error);
-    }
-    
-    $stmt->bind_param("ssssss", $firstname, $lastname, $email, $contactnum, $address, $hashed_password);
-    $stmt->execute();
+        $stmt->bind_result($user_id, $hashed_password);
+        $stmt->fetch();
 
-    if ($stmt->execute()) {
-        
-        echo "<script>alert('User Login successfully');</script>";
-        exit;
+        if (password_verify($password, $hashed_password)) {
+            $_SESSION['user_id'] = $user_id;
+            echo "<script>alert('Login successful!'); window.location.href='../src/Main_Pages/home.php';</script>";
+            exit();
+        } else {
+            echo "<script>alert('Incorrect email or password.');</script>";
+        }
     } else {
-       echo "<script>alert('Error Login user');</script>";
+        echo "<script>alert('Account not found.');</script>";
     }
 
     $stmt->close();

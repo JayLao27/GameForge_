@@ -1,7 +1,6 @@
-<?php include '../Template/header.php'; ?>
-
-<?php
-session_start();
+<?php include '../Template/header.php'; 
+    session_start();
+    include '../../dbconnection/dbconnect.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +14,40 @@ session_start();
 </head>
 
     <body class="bg-[#E6E6E6]">
+    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+    <div id="success-message" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-md opacity-0 transition-all duration-500">
+        Registration complete! Please proceed to login.
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const successMessage = document.getElementById("success-message");
+            if (successMessage) {
+                // Show the message with animation
+                setTimeout(() => {
+                    successMessage.classList.remove("opacity-0");
+                    successMessage.classList.add("opacity-100", "translate-y-[-20px]");
+                }, 300);
+
+                // Hide the message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add("opacity-0");
+                }, 5000);
+
+                // Remove it from the DOM completely after fade-out
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5500);
+            }
+        });
+    </script>
+<?php endif; ?>
         <section class="flex flex-col flex-wrap mx-auto mt-32 w-full h-full max-w-md max-h-[469px] items-start justify-center border-[1.5px] border-black rounded-lg bg-white">
             <div class="flex justify-start items-center flex-row w-full max-w-lg px-8">
                 <h1 class="text-2xl font-semibold mt-4">Log in to your account</h1>
             </div>
         
             <div class="flex items-start justify-start w-full max-w-lg px-8 py-2 pb-5">
-                <form class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">
+                <form method="POST" class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">
                     <label for="email" class="font-semibold text-lg opacity-75">Email <span class="text-red-700 pl-1">*</span></label>
                     <input type="email" name="email" id="email" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full">
                     
@@ -47,9 +73,3 @@ session_start();
     </body> 
 </html>
 
-<?php
-
-    if (isset($_GET['success']) && $_GET['success'] == 1) {
-        echo "<p class='text-green-600'>Account created successfully. Please log in.</p>";
-    }
-?>
