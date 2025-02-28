@@ -17,7 +17,7 @@ include '../Template/header.php'; ?>
 
                 <!-- left sect-->
                 <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
-                    <h1 class="text-9xl font-thin text-lg font-blackhan ">Contact us</h1>
+                    <h1 class="text-xl font-bold font-blackhan">Gameforge</h1>
                     <h2 class="text-5xl font-semibold mt-14 pl-17">Let's be in <br> <span class="pt-4 inline-block">touch</span></h2>
                 </div>
 
@@ -52,5 +52,6 @@ include '../Template/header.php'; ?>
             </div>
         </div>
     </div>
+    <?php include '../Template/footer.php'; ?>
 </body>
 </html>
