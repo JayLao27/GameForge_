@@ -59,16 +59,16 @@ session_start();
         <!-- browse sect -->
         <section class="text-center w-2xl">
             <div class="grid grid-cols-3 gap-0 justify-center items-center">
-                <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
-                    <p class="mt-2 font-medium">Keyboard</p>
+             <div class="border p-2 rounded-lg w-max mx-auto">
+             <a href="../Products/keyboard.php">      <img src="/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
+                    <p class="mt-2 font-medium">Keyboard</p> </a>
                 </div>
                 <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
-                    <p class="mt-2 font-medium">Mouse</p>
+                <a href="../Products/mouse.php">    <img src="/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
+                    <p class="mt-2 font-medium">Mouse</p></a>
                 </div>
                 <div class="border p-2 rounded-lg w-max mx-auto">
-                    <img src="/Resources/Images/Home/Iphone16.png" alt="Keyboard" class="w-25 h-auto mx-3">
+                <a href="../Products/Devices.php">      <img src="/Resources/Images/Home/Iphone16.png" alt="Keyboard" class="w-25 h-auto mx-3">
                     <p class="mt-2 font-medium">Devices</p>
                 </div>
             </div>

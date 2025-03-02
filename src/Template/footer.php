@@ -12,9 +12,9 @@
             <div>
                 <h3 class="font-bold text-blue-900">Gaming</h3>
                 <ul>
-                    <li><a href="/src/Main Pages/shop.php" class="hover:underline">Laptops</a></li>
-                    <li><a href="/src/Main Pages/shop.php" class="hover:underline">Keyboard</a></li>
-                    <li><a href="/src/Main Pages/shop.php" class="hover:underline">Mouse</a></li>
+                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Laptops</a></li>
+                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Keyboard</a></li>
+                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Mouse</a></li>
                 </ul>
             </div>
             <div>
@@ -26,7 +26,7 @@
             <div>
                 <h3 class="font-bold text-blue-900">Customer Service</h3>
                 <ul>
-                    <li><a href="/src/Main Pages/contact.php" class="hover:underline">Contact Us</a></li>
+                    <li><a href="/src/Main_Pages/contact.php" class="hover:underline">Contact Us</a></li>
                     <li><a href="" class="hover:underline">About us</a></li>
                 </ul>
             </div>
