@@ -21,7 +21,7 @@ session_start();
                 <div class="space-y-9 w-1/2 relative">
                     <h1 class="text-6xl font-bold text-left font-poppins">HyperX Gaming Headset</h1>
                     <div class="relative top-10 flex space-x-4">
-                    <a href="/src/Main_Pages/shop.php" class="inline-block">
+                    <a href="#Shop" class="inline-block">
                         <button class="flex items-center bg-[#FBFF10] font-semibold text-black px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
                             <img src="../../Resources/Images/Icons/Cart.png" alt="Shop Now" class="w-6 h-6 mr-2">
                             <span>Shop Now</span>
@@ -57,7 +57,7 @@ session_start();
     <div class="w-full flex flex-col items-center px-8 lg:px-20">
         <h2 class="text-2xl text-left font-semibold mb-8">Browse by Category</h2>
         <!-- browse sect -->
-        <section class="text-center w-2xl">
+        <section id="Shop" class="text-center w-2xl">
             <div class="grid grid-cols-3 gap-0 justify-center items-center">
              <div class="border p-2 rounded-lg w-max mx-auto">
              <a href="../Products/keyboard.php">      <img src="/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">

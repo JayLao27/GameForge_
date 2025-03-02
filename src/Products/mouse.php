@@ -8,7 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-200 p-5">
+<body class="bg-gray-200 p-5 mt-4" >
     <div class="flex min-h-screen">
         <aside class="w-1/5 p-4">
             <h2 class="text-xl font-bold underline">Category</h2>
