@@ -14,7 +14,7 @@ include '../../Backend/registration.php';
 </head>
 
     <body class="bg-[#E6E6E6]">
-    <section class="flex flex-col flex-wrap mx-auto max-h-screen mt-20 -translate-y-5 w-full max-w-[520px] items-start justify-start border-[1.5px] border-black rounded-lg bg-white">
+    <section class="flex flex-col flex-wrap mx-auto max-h-screen mt-20 -translate-y-5 w-full m/ax-w-[520px] items-start justify-start border-[1.5px] border-black rounded-lg bg-white">
     <div class="flex justify-start items-center flex-row w-full max-w-[650px] px-8">
         <h1 class="text-2xl font-semibold mt-4">Create an Account</h1>
     </div>

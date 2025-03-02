@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto px-2 flex flex-col md:flex-row justify-between items-start">
         <!--logo-->
         <div class="flex items-center space-x-3">
-            <img src="/Resources/Images/Home/GameforgeLogo.png" alt="GameForge Logo" class="w-12 h-12">
+            <img src="../../Resources/Images/Home/GameforgeLogo.png" alt="GameForge Logo" class="w-12 h-12">
             <span class="text-xl font-bold text-blue-900">GameForge</span>
         </div>
 

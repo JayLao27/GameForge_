@@ -13,29 +13,29 @@
 <header class="w-10/12 h-19 mt-8 bg-white shadow-sm">
     <div class="max-w-[1500px] mx-auto flex items-center justify-between px-2 py-4 gap-x-30">
         
-          <a href="/src/Main Pages/home.php" class="flex items-end px-4">
-            <img src="/Resources/Images/Home/GameforgeLogo.png" alt="GameForge Logo" class="h-10 w-10 mr-4"> 
+          <a href="../../src/Main_Pages/home.php" class="flex items-end px-4">
+            <img src="../../Resources/Images/Home/GameforgeLogo.png" alt="GameForge Logo" class="h-10 w-10 mr-4"> 
             <span class="text-[23px] font-blackhan text-[#4388AF]">GameForge</span>
           </a>
 
         <nav class="hidden md:flex items-center space-x-12 mt-3">
-            <a href="/src/Main Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Home</a>
-            <a href="#" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">About</a>
-            <a href="/src/Main Pages/shop.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Shop</a>
-            <a href="/src/Main Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Contact</a>
+            <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Home</a>
+            <a href="" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">About</a>
+            <a href="../../src/Main_Pages/shop.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Shop</a>
+            <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Contact</a>
         </nav>
 
         <div class="flex justify-center items-center space-x-6 mt-2 mr-12">
             <button class="text-black hover:text-blue-600">
-                <img src="/Resources/Images/Icons/Search.png" alt="Search" class="h-6 w-6">
+                <img src="../../Resources/Images/Icons/Search.png" alt="Search" class="h-6 w-6">
             </button>
-            <a href="/src/Main Pages/cart.php">
+            <a href="../../src/Main_Pages/cart.php">
                 <button class="text-black hover:text-blue-600 flex items-center">
-                    <img src="/Resources/Images/Icons/Cart.png" alt="Cart" class="h-6 w-6">
+                    <img src="../../Resources/Images/Icons/Cart.png" alt="Cart" class="h-6 w-6">
                 </button>
             </a>
             <button class="text-black hover:text-blue-600">
-                <img src="/Resources/Images/Icons/Profile.png" alt="User Profile" class="h-6 w-6">
+                <img src="../../Resources/Images/Icons/Profile.png" alt="User Profile" class="h-6 w-6">
             </button>
 
             <a href="signIn.php" class="border-none text-black hover:text-blue-600">

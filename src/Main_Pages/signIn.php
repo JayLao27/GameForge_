@@ -15,7 +15,7 @@
 
     <body class="bg-[#E6E6E6]">
     <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
-    <div id="success-message" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-md opacity-0 transition-all duration-500">
+    <div id="success-message" class="fixed top-20 ml-46 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-500">
         Registration complete! Please proceed to login.
     </div>
     <script>
@@ -55,7 +55,7 @@
                     <div class="relative w-full flex items-center">
                         <input type="password" name="password" id="password" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full pr-10">
                         <button type="button" id="togglepassword" class="absolute right-4 top-3 bg-transparent border-none cursor-pointer">
-                            <img src="/Resources/Images/Icons/password_icon.png" alt="Show Password" class="w-6 h-4">
+                            <img src="../../Resources/Images/Icons/password_icon.png" alt="Show Password" class="w-6 h-4">
                         </button>
                     </div>
                     

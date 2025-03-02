@@ -15,7 +15,7 @@
 
     <div class="border-t border-gray-300 pt-4 flex justify-between">
         <div class="flex items-center space-x-4">
-            <img src="/Resources/Images/laptop-png-8 3.png" alt="Laptop" class="w-16 h-16 object-cover">
+            <img src="../../Resources/Images/laptop-png-8 3.png" alt="Laptop" class="w-16 h-16 object-cover">
             <p class="text-lg">Laptop</p>
         </div>
         <p class="text-lg font-bold">₱ 30,000</p>

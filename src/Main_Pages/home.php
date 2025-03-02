@@ -21,9 +21,9 @@ session_start();
                 <div class="space-y-9 w-1/2 relative">
                     <h1 class="text-6xl font-bold text-left font-poppins">HyperX Gaming Headset</h1>
                     <div class="relative top-10 flex space-x-4">
-                    <a href="/src/Main Pages/shop.php" class="inline-block">
+                    <a href="/src/Main_Pages/shop.php" class="inline-block">
                         <button class="flex items-center bg-[#FBFF10] font-semibold text-black px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
-                            <img src="/Resources/Images/Icons/Cart.png" alt="Shop Now" class="w-6 h-6 mr-2">
+                            <img src="../../Resources/Images/Icons/Cart.png" alt="Shop Now" class="w-6 h-6 mr-2">
                             <span>Shop Now</span>
                         </button>
                     </a>
@@ -37,17 +37,17 @@ session_start();
                     <div class="flex items-center space-x-2 text-black text-[10px] font-semibold pl-48 mt-10">
                         <span class="flex justify-center">100+ Reviews</span>
                         <div class="flex space-0.9">
-                            <img src="/Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
-                            <img src="/Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
-                            <img src="/Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
-                            <img src="/Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
-                            <img src="/Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
+                            <img src="../../Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
+                            <img src="../../Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
+                            <img src="../../Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
+                            <img src="../../Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
+                            <img src="../../Resources/Images/Icons/star.png" alt="Star" class="w-2 h-2">
                         </div>
                     </div>
                 </div>
 
                 <div class="w-1/2 flex justify-center">
-                    <img src="/Resources/Images/Home/Headset.png" alt="HyperX Headset" class="w-150 h-auto">
+                    <img src="../../Resources/Images/Home/Headset.png" alt="HyperX Headset" class="w-150 h-auto">
                 </div>
             </div>
         </section>
@@ -96,7 +96,7 @@ session_start();
                         <p class="text-xs">seconds</p>
                     </div>
                 </div>
-                <a href="/src/Main Pages/shop.php" class="inline-block">
+                <a href="/src/Main_Pages/shop.php" class="inline-block">
                     <button class="bg-[#FBFF10] font-poppins text-black text-sm px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
                         Check it out!
                     </button>
