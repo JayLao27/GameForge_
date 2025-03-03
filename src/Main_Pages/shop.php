@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="/src/CSS/fonts.css">
 </head>
 <body>
-    <h1>WALA PA</h1>
+    <h1>WALA PA ayaw na ni butngi</h1>
 </body>
 </html>

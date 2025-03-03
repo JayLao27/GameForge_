@@ -31,45 +31,49 @@
     </div>
 
     <script>
-        let products = [
-            { name: "Motospeed V30 Gaming Mouse Black", price: 3999, img: "../../Resources/Images/Products/Mouse/Motospeed V30 Gaming Mouse Black.png" },
-            { name: "Motospeed V90 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png" },
-            { name: "Motospeed V400 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V400 Gaming Mouse Black.png" },
-            { name: "Motospeed Darmoshark N1 Gaming Mouse Black", price: 1999, img: "../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" },
-            { name: "Logitech M170 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Mouse/Logitech M170 Wireless Mouse Black.png" },
-            { name: "Philips M344 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Philips.png" },
-            { name: "ogitech M171 Wireless Mouse Gray", price: 899, img: "../../Resources/Images/Products/Mouse/ogitech M171 Wireless Mouse Gray.png" },
-            { name: "Prolink PMC1007 Optical Mouse Wired Champagne", price: 799, img: "../../Resources/Images/Products/Mouse/Prolink PMC1007 Optical Mouse Wired Champagne.png" },
-            { name: "Logitech M221 Silent Wireless Mouse Blue", price: 599, img: "../../Resources/Images/Products/Mouse/Logitech M221 Silent Wireless Mouse Blue.png" },
-            { name: "Prolink PMC2002 Optical Mouse Wired", price: 599, img: "../../Resources/Images/Products/Mouse/Prolink PMC2002 Optical Mouse Wired.png" },
-            { name: "Logitech B100 Optical USB Mousek", price: 299, img: "../../Resources/Images/Products/Mouse/Logitech B100 Optical USB Mouse.png" }
-        ];
+    let products = [
+        { name: "Motospeed V30 Gaming Mouse Black", price: 3999, img: "../../Resources/Images/Products/Mouse/Motospeed V30 Gaming Mouse Black.png" },
+        { name: "Motospeed V90 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png" },
+        { name: "Motospeed V400 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V400 Gaming Mouse Black.png" },
+        { name: "Motospeed Darmoshark N1 Gaming Mouse Black", price: 1999, img: "../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" },
+        { name: "Logitech M170 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Mouse/Logitech M170 Wireless Mouse Black.png" },
+        { name: "Philips M344 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Philips.png" },
+        { name: "ogitech M171 Wireless Mouse Gray", price: 899, img: "../../Resources/Images/Products/Mouse/ogitech M171 Wireless Mouse Gray.png" },
+        { name: "Prolink PMC1007 Optical Mouse Wired Champagne", price: 799, img: "../../Resources/Images/Products/Mouse/Prolink PMC1007 Optical Mouse Wired Champagne.png" },
+        { name: "Logitech M221 Silent Wireless Mouse Blue", price: 599, img: "../../Resources/Images/Products/Mouse/Logitech M221 Silent Wireless Mouse Blue.png" },
+        { name: "Prolink PMC2002 Optical Mouse Wired", price: 599, img: "../../Resources/Images/Products/Mouse/Prolink PMC2002 Optical Mouse Wired.png" },
+        { name: "Logitech B100 Optical USB Mousek", price: 299, img: "../../Resources/Images/Products/Mouse/Logitech B100 Optical USB Mouse.png" }
+    ];
 
-        let isHighToLow = true;
+    let isHighToLow = true;
 
-        function renderProducts() {
-            const productGrid = document.getElementById("productGrid");
-            productGrid.innerHTML = ""; 
+    function renderProducts() {
+        const productGrid = document.getElementById("productGrid");
+        productGrid.innerHTML = ""; 
 
-            products.forEach(product => {
-                productGrid.innerHTML += `
-                    <div class="bg-white p-4 rounded-lg shadow-md">
-                        <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
-                        <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
-                        <p class="text-sm text-gray-600">${product.name}</p>
-                    </div>
-                `;
-            });
-        }
-
-        document.getElementById("priceFilter").addEventListener("click", function() {
-            isHighToLow = !isHighToLow;
-            products.sort((a, b) => isHighToLow ? b.price - a.price : a.price - b.price);
-            document.getElementById("priceOrder").textContent = isHighToLow ? "High to Low" : "Low to High";
-            renderProducts();
+        products.forEach(product => {
+            productGrid.innerHTML += `
+                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="redirectToProduct('${product.name}')">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
+                    <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
+                    <p class="text-sm text-gray-600">${product.name}</p>
+                </div>
+            `;
         });
+    }
 
+    function redirectToProduct(productName) {
+    window.location.href = `productpage.php?name=${encodeURIComponent(productName)}`;
+}
+
+    document.getElementById("priceFilter").addEventListener("click", function() {
+        isHighToLow = !isHighToLow;
+        products.sort((a, b) => isHighToLow ? b.price - a.price : a.price - b.price);
+        document.getElementById("priceOrder").textContent = isHighToLow ? "High to Low" : "Low to High";
         renderProducts();
-    </script>
+    });
+
+    renderProducts();
+</script>
 </body>
 </html>

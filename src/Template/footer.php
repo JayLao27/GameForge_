@@ -12,9 +12,9 @@
             <div>
                 <h3 class="font-bold text-blue-900">Gaming</h3>
                 <ul>
-                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Laptops</a></li>
-                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Keyboard</a></li>
-                    <li><a href="/src/Main_Pages/shop.php" class="hover:underline">Mouse</a></li>
+                    <li><a href="../src/Products/" class="hover:underline">Laptops</a></li>
+                    <li><a href="../Products/keyboard.php" class="hover:underline">Keyboard</a></li>
+                    <li><a href="../Products/mouse.php" class="hover:underline">Mouse</a></li>
                 </ul>
             </div>
             <div>

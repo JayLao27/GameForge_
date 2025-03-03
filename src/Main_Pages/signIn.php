@@ -1,5 +1,8 @@
 <?php include '../Template/header.php'; 
+ if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
+    
     include '../../dbconnection/dbconnect.php';
 ?>
 
