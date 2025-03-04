@@ -9,31 +9,35 @@
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/CSS/fonts.css">
 </head>
-<body>
 
-<div class="w-full max-w-4xl mx-auto p-6 h-auto mt-15 mb-25 rounded-sm bg-[#E6E6E6]">
-    <h2 class="text-3xl font-medium font-quicksand text-center mb-4">Your Cart</h2>
+<body class="flex flex-col min-h-screen">
+    <div class="flex-grow flex items-center justify-center">
+        <div class="w-full max-w-4xl mx-auto h-[500px] p-6 mt-15 mb-40 rounded-sm bg-[#E6E6E6] flex flex-col justify-between">
+            
+            <h2 class="text-3xl font-medium font-quicksand text-center mb-4">Your Cart</h2>
 
-    <div id="cartItems"></div>
+            <div id="cartItems"></div>
 
-    <div id="orderSummary" class="mt-6 bg-gray-100 p-4 rounded-lg shadow-md w-1/3 ml-auto">
-        <h3 class="font-semibold text-lg mb-2">Order Summary</h3>
-        <div class="flex justify-between">
-            <p>Subtotal :</p>
-            <p class="font-bold" id="subtotal">₱ 0.00</p>
-        </div>
-        <div class="flex justify-between mt-2 border-t pt-2">
-            <p>Total :</p>
-            <p class="font-bold" id="total">₱ 0.00</p>
+            <div id="orderSummary" class="mt-6 bg-gray-100 p-4 rounded-lg shadow-md w-1/3 ml-auto">
+                <h3 class="font-semibold text-lg mb-2">Order Summary</h3>
+                <div class="flex justify-between">
+                    <p>Subtotal :</p>
+                    <p class="font-bold" id="subtotal">₱ 0.00</p>
+                </div>
+                <div class="flex justify-between mt-2 border-t pt-2">
+                    <p>Total :</p>
+                    <p class="font-bold" id="total">₱ 0.00</p>
+                </div>
+            </div>
+
+        
+            <div class="mt-auto flex justify-end">
+                <button class="bg-[#FBFF10] font-poppins text-black px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-700 ease-in-out hover:text-white self-end">
+                    CHECKOUT
+                </button>
+            </div>
         </div>
     </div>
-
-    <div class="mt-4 flex justify-end">
-        <button class="bg-[#FBFF10] font-poppins text-black px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-700 ease-in-out hover:text-white">
-            CHECKOUT
-        </button>
-    </div>
-</div>
 
 <script>
     function addToCart() {
