@@ -50,9 +50,9 @@
         </section>
 
 
-        <div class="mt-52">
+        <div class="mt-52 bg-white">
     <div class="w-full flex flex-col items-center px-8 lg:px-20">
-        <h2 class="text-2xl text-left font-semibold mb-8">Browse by Category</h2>
+        <h2 class="text-5xl text-left font-semibold mb-8 mt-20">Browse by Category</h2>
         <!-- browse sect -->
         <section id="Shop" class="text-center w-2xl">
             <div class="grid grid-cols-3 gap-0 justify-center items-center">

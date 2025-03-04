@@ -13,9 +13,9 @@
         <aside class="w-1/5 p-4">
             <h2 class="text-xl font-bold underline">Category</h2>
             <nav class="mt-4 space-y-2">
-                <button class="block w-full text-left px-4 py-2 rounded-lg bg-blue-500 text-white">Mouse</button>
-                <button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Devices</button>
-                <button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Keyboards</button>
+            <a href="mouse.php"> <button class="block w-full text-left px-4 py-2 rounded-lg bg-blue-500 text-white">Mouse</button> </a>
+               <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Devices</button></a>
+               <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Keyboards</button></a>
             </nav>
         </aside>
         

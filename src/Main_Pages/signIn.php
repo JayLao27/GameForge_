@@ -43,6 +43,7 @@
             }
         });
     </script>
+    
 <?php endif; ?>
         <section class="flex flex-col flex-wrap mx-auto mt-32 w-full h-full max-w-md max-h-[469px] items-start justify-center border-[1.5px] border-black rounded-lg bg-white">
             <div class="flex justify-start items-center flex-row w-full max-w-lg px-8">

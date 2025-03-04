@@ -24,10 +24,10 @@ session_start();
         </a>
 
         <nav class="hidden md:flex items-center space-x-12 mt-3">
-            <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Home</a>
-            <a href="" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">About</a>
-            <a href="../Products/mouse.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Shop</a>
-            <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-700 ease-in-out">Contact</a>
+            <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">Home</a>
+            <a href="../Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">About</a>
+            <a href="../Products/mouse.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Shop</a>
+            <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Contact</a>
         </nav>
 
         <div class="flex justify-center items-center space-x-6 mt-2 mr-12">
