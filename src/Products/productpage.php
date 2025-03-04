@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <link rel="stylesheet" href="styles.css"> 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link href="../CSS/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/CSS/fonts.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);

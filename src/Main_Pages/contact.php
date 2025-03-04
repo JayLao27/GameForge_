@@ -11,14 +11,15 @@ include '../Template/header.php'; ?>
     <link rel="stylesheet" href="/src/CSS/fonts.css">
     </head>
 <body class="bg-[#FFF6F6]">
-    <div class="min-h-screen flex items-center justify-center">
+    <div class="min-h-screen flex items-center justify-center mt-[-100px]">
         <div class="container mx-auto px-8 lg:px-20">
-            <div class="flex flex-col lg:flex-row items-center lg:items-start">
+            <div class="flex flex-col lg:flex-row items-center lg:items-center">
+
 
                 <!-- left sect-->
-                <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
-                    <h1 class="text-xl font-bold font-blackhan">Gameforge</h1>
-                    <h2 class="text-5xl font-semibold mt-14 pl-17">Let's be in <br> <span class="pt-4 inline-block">touch</span></h2>
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-7">
+                    <h1 class="text-xl font-bold font-blackhan text-[#4388AF]">Gameforge</h1>
+                    <h2 class="text-6xl font-semibold mt-25 pl-17">Let's be in <br> <span class="pt-4 inline-block">touch</span></h2>
                 </div>
 
                 <!-- right sect-->
@@ -30,12 +31,12 @@ include '../Template/header.php'; ?>
                     
                     <form class="space-y-4">
                         <div>
-                            <label class="block font-semibold">Name*</label>
+                            <label class="block font-semibold">Name *</label>
                             <input type="text" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-black p-2">
                         </div>
 
                         <div>
-                            <label class="block font-semibold">Email</label>
+                            <label class="block font-semibold">Email *</label>
                             <input type="email" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-black p-2">
                         </div>
 

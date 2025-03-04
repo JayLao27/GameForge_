@@ -5,16 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../CSS/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/CSS/fonts.css">
 </head>
 <body class="bg-[#E6E6E6] min-h-screen">
     <div class="flex min-h-screen">
-        <aside class="w-1/5 p-4">
-            <h2 class="text-xl font-bold underline">Category</h2>
+        <aside class="w-1/6 p-4">
+            <h2 class="text-3xl font-bold mx-4 my-4">Category</h2>
             <nav class="mt-4 space-y-2">
                <a href="mouse.php"> <button class="block w-full text-left px-4 py-2 rounded-lg bg-blue-500 text-white">Mouse</button> </a>
-               <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Devices</button></a>
+               <a href="devices.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Devices</button></a>
                <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Keyboards</button></a>
             </nav>
         </aside>
