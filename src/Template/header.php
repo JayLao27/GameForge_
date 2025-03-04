@@ -51,9 +51,10 @@ include __DIR__ . '/../../dbconnection/dbconnect.php';
             </button>
 
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                <span class="text-black font-semibold"><?= htmlspecialchars($_SESSION['firstname'] ?? 'User'); ?></span>
+                <span class="text-black font-semibold"><?= "Hi, " . htmlspecialchars($_SESSION['firstname'] ?? 'User' ); ?></span>
+
                 <form action="../../Backend/logout.php" method="POST" style="display:inline;">
-                    <button type="submit" class="border-none text-black hover:text-blue-600 bg-transparent">Logout</button>
+                    <button type="submit" class="border-none text-black hover:text-bl   ue-600 bg-transparent">Logout</button>
                 </form>
             <?php else: ?>
                 <a href="../../src/Main_Pages/signIn.php" class="border-none text-black hover:text-blue-600">Sign In</a>

@@ -1,6 +1,7 @@
 <?php
-session_start(); // Start session safely
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include '../../dbconnection/dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
