@@ -1,3 +1,4 @@
+<?php include '../Template/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +40,6 @@
     </script>
 </head>
 <body class="bg-[#E6E6E6] flex flex-col items-center justify-center min-h-screen">
-    
-    <!-- Include header inside the body -->
-    <?php include '../Template/header.php'; ?>
 
       <div class="bg-[#E6E6E6] p-6 rounded-lg shadow-lg w-full max-w-8xl mx-auto flex gap-6">
     <div class="w-1/2">
@@ -79,7 +77,7 @@
             </div>
 
             <!-- Add to Cart Button -->
-            <button onclick="addToCart()" class="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold">
+            <button onclick="addToCart()" class="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold hover:text-white hover:bg-blue-600 transition-all duration-700">
                 Add to Cart
             </button>
         </div>

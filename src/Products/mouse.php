@@ -8,7 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-200 p-5 mt-4" >
+<body class="bg-gray-200" >
     <div class="flex min-h-screen">
         <aside class="w-1/5 p-4">
             <h2 class="text-xl font-bold underline">Category</h2>
@@ -20,13 +20,13 @@
         </aside>
         
         <main class="flex-1">
-            <div class="flex justify-end mb-4">
+            <div class="flex justify-end mb-4 mt-4 mr-4">
                 <button id="priceFilter" class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow">
                     Price range: <span id="priceOrder">High to Low</span> <span>&#9662;</span>
                 </button>
             </div>
 
-            <div id="productGrid" class="grid grid-cols-3 gap-4"></div>
+            <div id="productGrid" class="grid grid-cols-3 gap-4 mb-70"></div>
         </main>
     </div>
 
@@ -75,5 +75,6 @@
 
     renderProducts();
 </script>
+<?php include '../Template/footer.php'; ?>
 </body>
 </html>
