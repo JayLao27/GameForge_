@@ -1,5 +1,12 @@
 <?php 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+error_log("Session Username: " . ($_SESSION['username'] ?? "Not Set"));
+
+
+include __DIR__ . '/../../Backend/Components/fetch.php'; 
+include __DIR__ . '/../../dbconnection/dbconnect.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +50,19 @@ session_start();
                 <img src="../../Resources/Images/Icons/Profile.png" alt="User Profile" class="h-6 w-6">
             </button>
 
-            <?php if (isset($_SESSION['username'])): ?>
-                <span class="text-black font-semibold"><?= htmlspecialchars($_SESSION['username']); ?></span>
-                <a href="../../src/Main_Pages/logout.php" class="border-none text-black hover:text-blue-600">Logout</a>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                <span class="text-black font-semibold"><?= htmlspecialchars($_SESSION['firstname'] ?? 'User'); ?></span>
+                <form action="../../Backend/logout.php" method="POST" style="display:inline;">
+                    <button type="submit" class="border-none text-black hover:text-blue-600 bg-transparent">Logout</button>
+                </form>
             <?php else: ?>
                 <a href="../../src/Main_Pages/signIn.php" class="border-none text-black hover:text-blue-600">Sign In</a>
             <?php endif; ?>
+
+
+
+
+</div>
         </div>
     </div>
 </header>

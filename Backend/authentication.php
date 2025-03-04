@@ -1,32 +1,41 @@
 <?php
-session_start();
-include '../dbconnection/dbconnect.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+include '../../dbconnection/dbconnect.php';
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signInbtn'])) {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    $query = "SELECT id, firstname, password FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->store_result();
-    
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($user_id, $hashed_password);
-        $stmt->fetch();
+    $result = $stmt->get_result();
 
-        if (password_verify($password, $hashed_password)) {
-            $_SESSION['user_id'] = $user_id;
-            echo "<script>alert('Login successful!'); window.location.href='../src/Main_Pages/home.php';</script>";
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['firstname'] = $user['firstname']; // Store first name
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['email'] = $email; // Store email for reference
+            $_SESSION['logged_in'] = true;
+
+            error_log("User logged in: " . $_SESSION['firstname']); // Debugging
+            header("Location: ../../src/Main_Pages/home.php");
             exit();
         } else {
-            echo "<script>alert('Incorrect email or password.');</script>";
+            $_SESSION['error_message'] = "Invalid email or password.";
+            header("Location: ../../src/Main_Pages/signIn.php");
+            exit();
         }
     } else {
-        echo "<script>alert('Account not found.');</script>";
+        $_SESSION['error_message'] = "Invalid email or password.";
+        header("Location: ../../src/Main_Pages/signIn.php");
+        exit();
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>
