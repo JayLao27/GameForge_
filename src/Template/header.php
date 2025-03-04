@@ -46,9 +46,11 @@ include __DIR__ . '/../../dbconnection/dbconnect.php';
                     <img src="../../Resources/Images/Icons/Cart.png" alt="Cart" class="h-6 w-6">
                 </button>
             </a>
-            <button class="text-black hover:text-blue-600">
-                <img src="../../Resources/Images/Icons/Profile.png" alt="User Profile" class="h-6 w-6">
-            </button>
+            <a href="../../src/Main_Pages/profile.php">
+                <button class="text-black hover:text-blue-600 flex items-center">
+                    <img src="../../Resources/Images/Icons/Profile.png" alt="Profile" class="h-6 w-6">
+                </button>
+            </a>
 
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                 <span class="text-black font-semibold"><?= "Hi, " . htmlspecialchars($_SESSION['firstname'] ?? 'User' ); ?></span>
