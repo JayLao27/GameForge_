@@ -36,57 +36,46 @@
             } else {
                 document.getElementById("productDetails").innerHTML = "<p>Product not found.</p>";
             }
+
+            document.getElementById("addToCartBtn").addEventListener("click", function() {
+                if (product) {
+                    addToCart(product);
+                }
+            });
         });
+
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name: product.name, price: product.price, img: product.img, quantity: 1 });
+            }
+            
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${product.name} added to cart!`);
+        }
     </script>
 </head>
 <body class="bg-[#E6E6E6] flex flex-col items-center justify-center min-h-screen">
 
-      <div class="bg-[#E6E6E6] p-6 rounded-lg shadow-lg w-full max-w-8xl mx-auto flex gap-6">
-    <div class="w-1/2">
-    <div class="bg-white p-4 rounded-lg shadow">
-        <img id="productImage" class="w-full h-auto rounded-lg" src="https://via.placeholder.com/300" alt="Product Image">
-    </div>
-</div>
-<div class="w-1/2 pl-6">
-            <!-- Product Name -->
-            <h1 id="productName" class="text-[50px] font-bold mb-4 pl-4">
-                MSI Thin 15 B13VE-1831PH Gaming Laptop (Cosmos Grey) | 15.6" FHD (1920x1080) 144Hz IPS | i5-13420H | 8GB Ram | 512GB SSD | RTX 4050 | Windows 11 Home | MSI Gaming Backpack
-            </h1>
-            <!-- Product Specifications -->
-            <p class="text-gray-700 text-[20px] mb-4 leading-6">
-                <strong>PROCESSOR:</strong> 13th Gen Intel Core i5-13420H <br>
-                <strong>DISPLAY:</strong> 15.6" FHD (1920x1080), 144Hz <br>
-                <strong>MEMORY:</strong> 8GB, DDR4-3200 <br>
-                <strong>STORAGE:</strong> 512GB NVME PCIe SSD <br>
-                <strong>GPU:</strong> NVIDIA GeForce RTX 4050 <br>
-                <strong>OS:</strong> Windows 11 Home
-            </p>
-
-            <!-- Price -->
-            <p id="productPrice" class="text-xl text-gray-700 font-semibold mb-4"><Strong class="text-black">Price :</Strong>₱49,999.00</p>
-
-            <!-- Stock Status -->
-            <p class="text-green-600 font-semibold mb-4"><Strong class="text-black">Stock: </Strong>In Stock</p>
-
-            <!-- Quantity Selector -->
-            <div class="flex items-center space-x-2 mb-4">
-                <strong>Quantity</strong>
-            <button class="px-3 py-1 bg-gray-200 rounded">-</button>
-                <span class="px-3 py-1 border rounded">1</span>
-                <button class="px-3 py-1 bg-gray-200 rounded">+</button>
+    <div class="bg-[#E6E6E6] p-6 rounded-lg shadow-lg w-full max-w-8xl mx-auto flex gap-6">
+        <div class="w-1/2">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img id="productImage" class="w-full h-auto rounded-lg" src="https://via.placeholder.com/300" alt="Product Image">
             </div>
+        </div>
+        <div class="w-1/2 pl-6">
+            <h1 id="productName" class="text-[50px] font-bold mb-4 pl-4">Product Name</h1>
+            <p id="productPrice" class="text-xl text-gray-700 font-semibold mb-4"><strong>Price:</strong> ₱0.00</p>
 
-            <!-- Add to Cart Button -->
-            <button onclick="addToCart()" class="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold hover:text-white hover:bg-blue-600 transition-all duration-700">
+            <button id="addToCartBtn" class="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold hover:text-white hover:bg-blue-600 transition-all duration-700">
                 Add to Cart
-            </button>
+            </button>   
         </div>
     </div>
 
-    <script>
-        function addToCart() {
-            alert("Product added to cart!");
-        }
-    </script>
 </body>
 </html>

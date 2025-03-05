@@ -38,4 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signInbtn'])) {
         exit();
     }
 }
+if (empty($email) || empty($password)) {
+    $_SESSION['error_message'] = "Please fill in all fields.";
+    header("Location: ../../src/Main_Pages/signIn.php");
+    exit();
+}
 ?>

@@ -34,6 +34,6 @@ We specialize in offering top-quality gaming laptops, gaming keyboards, and g
             </div>
         </div>
     </div>
-    <?php include '../Template/footer.php'; ?>
 </body>
 </html>
+<?php include '../Template/footer.php'; ?>
