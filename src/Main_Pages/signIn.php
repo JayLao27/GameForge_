@@ -1,16 +1,11 @@
 <?php
+include '../Template/header.php';
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Check if user is logged in
-$isLoggedIn = isset($_SESSION['username']);
-include '../Template/header.php'; 
-include '../../Backend/authentication.php';
-include '../../dbconnection/dbconnect.php';
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +19,7 @@ include '../../dbconnection/dbconnect.php';
 
 <body class="bg-[#E6E6E6]">
     <?php
+    // Success message after registration
     if (isset($_SESSION['registration_success'])): 
     ?>
         <div id="success-message" class="fixed top-20 ml-46 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-500">
@@ -36,6 +32,7 @@ include '../../dbconnection/dbconnect.php';
         unset($_SESSION['registration_success']);
     endif;
 
+    // Error message for invalid login
     if (isset($_SESSION['error_message'])): 
     ?>
         <div id="error-message" class="fixed top-20 ml-46 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-500">
@@ -55,7 +52,7 @@ include '../../dbconnection/dbconnect.php';
         </div>
     
         <div class="flex items-start justify-start w-full max-w-lg px-8 py-2 pb-5">
-            <form method="POST" class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">
+            <form method="POST" action="../../Backend/authentication.php" class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">
                 <label for="email" class="font-semibold text-lg opacity-75">Email <span class="text-red-700 pl-1">*</span></label>
                 <input type="email" name="email" id="email" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full">
                 
@@ -68,9 +65,10 @@ include '../../dbconnection/dbconnect.php';
                 </div>
                 
                 <div class="flex justify-center w-full">
-                    <button name="signInbtn" class="text-white text-lg font-medium border-none rounded-2xl bg-blue-600 w-full max-w-lg mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out">Sign In</button>
+                    <button type="submit" name="signInbtn" class="text-white text-lg font-medium border-none rounded-2xl bg-blue-600 w-full max-w-lg mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out">Sign In</button>
                 </div>
             </form>
+            <p><?php echo isset($error) ? $error : ''; ?></p>
         </div>
         
         <div class="flex justify-center w-full pb-10">
