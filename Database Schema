@@ -2,61 +2,68 @@
 CREATE DATABASE gameforge_db;
 USE gameforge_db;
 
--- Users Table
+-- Users Table (Optimized)
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    contactnum VARCHAR(20) NOT NULL,
+    id INT AUTO_INCREMENT  PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL, -- Added username column
+    firstname VARCHAR(100) NOT NULL,
+    lastname VARCHAR(100) NOT NULL,
+    email VARCHAR(191) UNIQUE NOT NULL,
+    contactnum VARCHAR(20) UNIQUE NOT NULL,
     address TEXT NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE,
+    password VARCHAR(255) NOT NULL,  -- Store hashed passwords
+    role ENUM('admin', 'customer') DEFAULT 'customer',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Products Table
+
+-- Products Table (Improved Stock Management)
 CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    price DECIMAL(10,2) NOT NULL,
-    stock INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),  -- Ensure price is not negative
+    stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0),  -- Ensure stock is non-negative
     image_url VARCHAR(255)
 );
 
--- Cart Table
+-- Cart Table (Added Indexes)
 CREATE TABLE cart (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT, 
     product_id INT, 
-    quantity INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    INDEX(user_id),  
+    INDEX(product_id)
 );
 
--- Orders Table (Fixed: Added 'refund' to ENUM)
+-- Orders Table (Added Index & Nullable User for Guest Orders)
 CREATE TABLE orders (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
+    user_id INT NULL,  -- Allow guest checkout
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total DECIMAL(10,2) NOT NULL,
+    total DECIMAL(10,2) NOT NULL CHECK (total >= 0),  
     status ENUM('pending', 'completed', 'canceled', 'refund') DEFAULT 'pending',
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+    INDEX(user_id)
 );
 
--- Order Items Table
+-- Order Items Table (Added Indexes)
 CREATE TABLE order_items (
     id INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT,
     product_id INT,
-    quantity INT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    INDEX(order_id),
+    INDEX(product_id)
 );
 
--- Reviews Table (Newly Added)
+-- Reviews Table (Optimized Indexing)
 CREATE TABLE reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -65,9 +72,13 @@ CREATE TABLE reviews (
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    INDEX(user_id),
+    INDEX(product_id)
 );
 
--- Insert Admin User
-INSERT INTO users (firstname, lastname, email, contactnum, address, password, is_admin) 
-VALUES ('Admin', 'User', 'admin@gameforge.com', '09216546578', 'Admin Address', '123', TRUE);
+-- Insert Admin User (Hashed Password Placeholder)
+INSERT INTO users (firstname, lastname, username, email, contactnum, address, password, role) 
+VALUES ('Admin', 'User', 'admin', 'admin@gameforge.com', '09216546578', 'Admin Address', 
+        '$2y$10$h4G5I1A7pTLW5R0y8tTzaO/uKBuC5MBQX5ZyN2GeFuF2shaf/YH8K', 'admin');
+

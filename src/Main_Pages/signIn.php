@@ -1,10 +1,10 @@
 <?php
 include '../Template/header.php';
 
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -12,49 +12,37 @@ if (session_status() === PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.5/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/fonts.css">
     <title>SignIn Page</title>
 </head>
 
 <body class="bg-[#E6E6E6]">
-    <?php
-    // Success message after registration
-    if (isset($_SESSION['registration_success'])): 
-    ?>
-        <div id="success-message" class="fixed top-20 ml-46 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-500">
-            Registration complete! Please proceed to login.
-        </div>
-        <script>
-            setTimeout(() => document.getElementById("success-message").remove(), 5000);
-        </script>
-    <?php
-        unset($_SESSION['registration_success']);
-    endif;
-
-    // Error message for invalid login
-    if (isset($_SESSION['error_message'])): 
-    ?>
-        <div id="error-message" class="fixed top-20 ml-46 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-500">
-            <?php echo htmlspecialchars($_SESSION['error_message']); ?>
-        </div>
-        <script>
-            setTimeout(() => document.getElementById("error-message").remove(), 5000);
-        </script>
-    <?php
-        unset($_SESSION['error_message']);
-    endif;
-    ?>
 
     <section class="flex flex-col flex-wrap mx-auto mt-32 w-full h-full max-w-md max-h-[469px] items-start justify-center border-[1.5px] border-black rounded-lg bg-white">
         <div class="flex justify-start items-center flex-row w-full max-w-lg px-8">
             <h1 class="text-2xl font-semibold mt-4">Log in to your account</h1>
         </div>
-    
+
+        <!-- Display Error Message -->
+        <?php if (isset($_SESSION['error_message'])): ?>
+            <div id="error-message" class="bg-red-600 text-black px-4 py-2 rounded-lg shadow-md w-full text-center mt-100">
+                <?php echo htmlspecialchars($_SESSION['error_message']); ?>
+            </div>
+            <script>
+                setTimeout(() => document.getElementById("error-message").remove(), 5000);
+            </script>
+        <?php
+            unset($_SESSION['error_message']);
+        endif;
+        ?>
+
         <div class="flex items-start justify-start w-full max-w-lg px-8 py-2 pb-5">
             <form method="POST" action="../../Backend/authentication.php" class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">
-                <label for="email" class="font-semibold text-lg opacity-75">Email <span class="text-red-700 pl-1">*</span></label>
-                <input type="email" name="email" id="email" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full">
+                
+                <!-- Changed label and input from email to username -->
+                <label for="username" class="font-semibold text-lg opacity-75">Username <span class="text-red-700 pl-1">*</span></label>
+                <input type="text" name="username" id="username" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full">
                 
                 <label for="password" class="font-semibold text-lg opacity-75">Password <span class="text-red-700 pl-1">*</span></label>
                 <div class="relative w-full flex items-center">
@@ -68,7 +56,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     <button type="submit" name="signInbtn" class="text-white text-lg font-medium border-none rounded-2xl bg-blue-600 w-full max-w-lg mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out">Sign In</button>
                 </div>
             </form>
-            <p><?php echo isset($error) ? $error : ''; ?></p>
         </div>
         
         <div class="flex justify-center w-full pb-10">

@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/JayLao27/GameForge_#readme",
   "devDependencies": {
-    "tailwindcss": "^4.0.9"
+    "tailwindcss": "^4.0.12"
   }
 }
