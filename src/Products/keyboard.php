@@ -18,9 +18,9 @@ if (!isset($_SESSION['user_id'])) {
         <aside class="w-1/6 p-4">
             <h2 class="text-3xl font-bold mx-4 my-4">Category</h2>
             <nav class="mt-4 space-y-2">
-               <a href="mouse.php"> <button class="block w-full text-left px-4 py-2 rounded-lg bg-blue-500 text-white">Mouse</button> </a>
-               <a href="devices.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Devices</button></a>
-               <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Keyboards</button></a>
+               <a href="mouse.php"> <button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Mouse</button> </a>
+               <a href="headset.php"><button class="block w-full text-left px-4 py-2 rounded-lg hover:bg-gray-300">Headset</button></a>
+               <a href="keyboard.php"><button class="block w-full text-left px-4 py-2 rounded-lg bg-blue-500 text-white">Keyboards</button></a>
             </nav>
         </aside>
         
