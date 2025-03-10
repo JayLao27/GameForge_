@@ -76,9 +76,3 @@ CREATE TABLE reviews (
     INDEX(user_id),
     INDEX(product_id)
 );
-
--- Insert Admin User (Hashed Password Placeholder)
-INSERT INTO users (firstname, lastname, username, email, contactnum, address, password, role) 
-VALUES ('Admin', 'User', 'admin', 'admin@gameforge.com', '09216546578', 'Admin Address', 
-        '$2y$10$h4G5I1A7pTLW5R0y8tTzaO/uKBuC5MBQX5ZyN2GeFuF2shaf/YH8K', 'admin');
-

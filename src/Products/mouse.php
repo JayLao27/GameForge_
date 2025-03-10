@@ -1,5 +1,11 @@
-<?php include '../Template/header.php'; ?>
+<?php
+include '../Template/header.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../Main_Pages/signIn.php");
+    exit(); // Always exit after header redirection
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

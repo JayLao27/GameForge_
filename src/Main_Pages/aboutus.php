@@ -1,5 +1,8 @@
 <?php include '../Template/header.php';
-
+if (!isset($_SESSION['user_id'])) {
+    header("Location: signIn.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
