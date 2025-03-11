@@ -20,9 +20,10 @@ if (!isset($_SESSION['user_id'])) {
         <!-- side -->
         <aside class="w-1/3 h-210 mt-10 flex flex-col justify-start items-center gap-10 bg-white border-r-2 border-black p-6">
                 <h2 class="text-2xl font-bold text-center mb-6">Account Info</h2>
-                <nav class="ml-[-25px] flex flex-col">
-                <a href="#" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700">Profile</a>
+                <nav class="ml-[-25px] flex flex-col gap-4">
+                <a href="profile.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700">Profile</a>
                 <a href="payments.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700 mt-2">Payment</a>
+                <a href="orderhistory.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700 mt-2">Order History</a>
                   </nav>  
 
         </aside>

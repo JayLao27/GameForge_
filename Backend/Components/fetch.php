@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include __DIR__ . '/../../dbconnection/dbconnect.php'; // Ensure the correct path
+include __DIR__ . '/../../dbconnection/dbconnect.php'; 
 
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];

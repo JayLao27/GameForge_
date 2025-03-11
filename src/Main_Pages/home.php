@@ -55,20 +55,20 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <div class="mt-52 bg-white">
     <div class="w-full flex flex-col items-center px-8 lg:px-20">
-        <h2 class="text-5xl text-left font-semibold mb-8 mt-20">Browse by Category</h2>
+        <h2 class="text-5xl text-left font-semibold mb-15 mt-20">Browse by Category</h2>
         <!-- browse sect -->
         <section id="Shop" class="text-center w-2xl">
             <div class="grid grid-cols-3 gap-0 justify-center items-center">
-             <div class="border p-2 rounded-lg w-max mx-auto">
-             <a href="../Products/keyboard.php">      <img src="/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
+             <div class="border p-2 border-blue-500 rounded-lg w-max mx-auto">
+             <a href="../Products/keyboard.php">      <img src="/GameForge_/Resources/Images/Home/Keyboard 1.png" alt="Keyboard" class="w-32 h-auto mx-auto">
                     <p class="mt-2 font-medium">Keyboard</p> </a>
                 </div>
-                <div class="border p-2 rounded-lg w-max mx-auto">
-                <a href="../Products/mouse.php">    <img src="/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
+                <div class="border p-2 border-blue-500 rounded-lg w-max mx-auto">
+                <a href="../Products/mouse.php">    <img src="/GameForge_/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-26 h-25 mx-3">
                     <p class="mt-2 font-medium">Mouse</p></a>
                 </div>
-                <div class="border p-2 rounded-lg w-max mx-auto">
-                <a href="../Products/Devices.php">      <img src="/Resources/Images/Home/Iphone16.png" alt="Keyboard" class="w-25 h-auto mx-3">
+                <div class="border p-2 border-blue-500 rounded-lg w-max mx-auto">
+                <a href="../Products/Devices.php">      <img src="/GameForge_/Resources/Images/Home/Headset.png" alt="Headset" class="w-26 h-25 mx-3">
                     <p class="mt-2 font-medium">Devices</p>
                 </div>
             </div>
@@ -103,7 +103,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </a>
             </div>
             <div class="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-                <img src="/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
+                <img src="/GameForge_/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
             </div>
         </section>
     </div>
@@ -115,18 +115,18 @@ if (session_status() === PHP_SESSION_NONE) {
            
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <div class="bg-[#FFF7F7] flex justify-center p-6 pb-12">
-                    <img src="/Resources/Images/Home/Iphone16.png" alt="iPhone 16 Pro Max" class="h-40">
+                    <img src="/GameForge_/Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png" alt="Motospeed V90 Gaming Mouse Black" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-2 text-left">
-                    <p class="text-lg font-bold">₱ 45,950.00</p>
-                    <h3 class="text-gray-600 h-12">iPhone 16 Pro Max</h3>
+                    <p class="text-lg font-bold">₱ 2,999</p>
+                    <h3 class="text-gray-600 h-12">Motospeed V90 Gaming Mouse Black</h3>
                 </div>
             </div>
 
             
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Home/wooting.png" alt="iPhone 16 Pro Max" class="h-40">
+                    <img src="/GameForge_/Resources/Images/Home/wooting.png" alt="Wooting Keyboard" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold">₱ 9,700</p>
@@ -136,8 +136,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
                 <div class="bg-pink-50 flex justify-center p-6">
+<<<<<<< HEAD
                     <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse%20Black">
                     <img src="/Resources/Images/Home/Motospeed Darmoshark N1 Gaming Mouse Black.jpg" alt="Motospped Darmoshark Mouse" class="h-40"></a>
+=======
+                    <img src="/GameForge_/Resources/Images/Home/Motospeed Darmoshark N1 Gaming Mouse Black.jpg" alt="Motospped Darmoshark Mouse" class="h-40">
+>>>>>>> d32d06d3129ddf685b896845a76df8a230128cc5
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 1,500</p>
@@ -147,7 +151,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Home/Headset.png" alt="iPhone 16 Pro Max" class="h-40 mx-auto mr-10">
+                    <img src="/GameForge_/Resources/Images/Home/Headset.png" alt="HyperX Cloud II Gaming Headset" class="h-40 mx-auto mr-10">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 3,500</p>

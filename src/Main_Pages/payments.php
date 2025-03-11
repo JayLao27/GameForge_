@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $balance = 0.00; // Default balance to prevent undefined variable warning
 
-$query = "SELECT balance FROM users WHERE id = ?";
+$query = "SELECT balance FROM wallet WHERE user_id = ?";
 $stmt = $conn->prepare($query);
 if ($stmt) {
     $stmt->bind_param("i", $user_id);
@@ -58,7 +58,7 @@ if ($stmt) {
                     <label class="block text-gray-700 font-semibold">Add Money</label>
                     <input type="number" name="amount" step="0.01" min="1" class="w-full p-2 border rounded-lg bg-gray-100" required>
 
-                    <button type="submit" class="w-full px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition-all duration-700">
+                    <button type="submit" class="w-full px-6 py-2 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition-all duration-700">
                         Add Balance
                     </button>
                 </form>
