@@ -11,7 +11,7 @@ include '../../Backend/auth_check.php';
     <title>Your Cart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             loadCart();
@@ -71,8 +71,8 @@ include '../../Backend/auth_check.php';
             loadCart();
         }
     </script>
-</head>
-<body class="bg-gray-200 p-6">
+</head> 
+<body class="bg-gray-200">
     <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg mt-20 mb-20">
         <h1 class="text-2xl font-bold text-center mb-6">Your Cart</h1>
         <div class="bg-gray-100 p-4 rounded-lg">

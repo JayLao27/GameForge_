@@ -13,7 +13,7 @@ include '../../dbconnection/dbconnect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <title>Profile</title>
     <script>
         function showEditProfile() {

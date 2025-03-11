@@ -9,17 +9,17 @@ include '../../Backend/auth_check.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="products.js" defer></script>
 </head>
 <body class="bg-[#E6E6E6] min-h-screen">
     <div class="flex min-h-screen">
-        <aside class="w-1/6 p-4">
-            <h2 class="text-3xl font-bold mx-4 my-4">Category</h2>
+        <aside class="w-1/6 p-7">
+            <h2 class="text-3xl font-bold mx-4 my-4 mb-6">Category</h2>
             <nav class="mt-4 space-y-2">
-            <button onclick="renderProducts('Mouse')" class="block w-full text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-al">Mouse</button>
-            <button onclick="renderProducts('Headset')" class="block w-full text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-all">Headset</button>
-            <button onclick="renderProducts('Laptops')" class="block w-full text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-all">Laptops</button>
+            <button onclick="renderProducts('Mouse')" class="block w-60 text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-al">Mouse</button>
+            <button onclick="renderProducts('Headset')" class="block w-60 text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-all">Headset</button>
+            <button onclick="renderProducts('Laptops')" class="block w-60 text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-all">Laptops</button>
             </nav>
         </aside>
         

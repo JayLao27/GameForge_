@@ -10,7 +10,7 @@ include '../../Backend/session_start.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="../Products/products.js" defer></script>
     <title>GameForge</title>
 </head>
@@ -61,19 +61,19 @@ include '../../Backend/session_start.php';
     <div class="grid grid-cols-3 gap-0 justify-center items-center">
         <div class="border p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Laptops">
-                <img src="/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-auto mx-auto">
+                <img src="../../Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-auto mx-auto">
                 <p class="mt-2 font-medium">Laptop</p>
             </a>
         </div>
         <div class="border p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Mouse">
-                <img src="/Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
+                <img src="../../Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
                 <p class="mt-2 font-medium">Mouse</p>
             </a>
         </div>
         <div class="border p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Headset">
-                <img src="/Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" alt="Headset" class="w-25 h-auto mx-3">
+                <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" alt="Headset" class="w-25 h-auto mx-3">
                 <p class="mt-2 font-medium">Headset</p>
             </a>
         </div>
@@ -143,7 +143,7 @@ include '../../Backend/session_start.php';
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
                 <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
+                    <img src="../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 1999.00</p>

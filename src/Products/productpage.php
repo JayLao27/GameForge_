@@ -11,12 +11,12 @@ include '../../Backend/auth_check.php';
     <title>Product Details</title>
     <link rel="stylesheet" href="styles.css"> 
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="products.js"></script>
 
 
 </head>
-<body class="bg-[#E6E6E6] flex flex-col items-center justify-center min-h-screen">
+<body class="bg-[#E6E6E6] flex flex-col items-center justify-center">
 
     <div class="bg-[#E6E6E6] p-6 rounded-lg shadow-lg w-full max-w-8xl mx-auto flex gap-6">
         <div class="w-1/2">

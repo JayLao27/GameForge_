@@ -10,7 +10,7 @@ include '../../Backend/auth_check.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     </head>
 <body class="bg-[#FFF6F6]">
     <div class="min-h-screen flex items-center justify-center mt-[-100px]">

@@ -13,7 +13,7 @@ include '../../dbconnection/dbconnect.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../CSS/output.css" rel="stylesheet">
-  <link rel="stylesheet" href="/src/CSS/fonts.css">
+  <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
   <title>GameForge</title>
 </head>
 
@@ -30,7 +30,7 @@ include '../../dbconnection/dbconnect.php';
 
         <nav class="hidden md:flex items-center space-x-12 mt-3">
             <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">Home</a>
-            <a href="../Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">About</a>
+            <a href="../../src/Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">About</a>
             <a href="../Products/products.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Shop</a>
             <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Contact</a>
         </nav>
@@ -46,7 +46,7 @@ include '../../dbconnection/dbconnect.php';
             </a>
             <a href="../../src/Main_Pages/profile.php">
             <button class="text-black hover:text-blue-600 flex items-center">
-            <img id="profilePic" src="<?php echo isset($_SESSION['profile_image']) && !empty($_SESSION['profile_image']) ? '../../uploads/' . $_SESSION['profile_image'] : '../../Resources/Images/Icons/Profile.png'; ?>?t=<?php echo time(); ?>" alt="Profile" class="h-10 w-10 rounded-full border border-gray-300">
+            <img id="profilePic" src="<?php echo isset($_SESSION['profile_image']) && !empty($_SESSION['profile_image']) ? '../../uploads/' . $_SESSION['profile_image'] : '../../Resources/Images/Icons/Profile.png'; ?>?t=<?php echo time(); ?>" alt="Profile" class="h-7 w-7 rounded-full border border-gray-300">
             </button>
         </a>
 
