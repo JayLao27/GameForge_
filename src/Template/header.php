@@ -33,7 +33,7 @@ include __DIR__ . '/../../dbconnection/dbconnect.php';
         <nav class="hidden md:flex items-center space-x-12 mt-3">
             <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">Home</a>
             <a href="../Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">About</a>
-            <a href="../Products/mouse.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Shop</a>
+            <a href="../Products/products.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Shop</a>
             <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Contact</a>
         </nav>
 

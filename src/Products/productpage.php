@@ -8,56 +8,9 @@
     <link rel="stylesheet" href="styles.css"> 
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/CSS/fonts.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productName = urlParams.get("name");
+    <script src="products.js"></script>
 
-            const products = [
-                { name: "Motospeed V30 Gaming Mouse Black", price: 3999, img: "../../Resources/Images/Products/Mouse/Motospeed V30 Gaming Mouse Black.png" },
-                { name: "Motospeed V90 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png" },
-                { name: "Motospeed V400 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V400 Gaming Mouse Black.png" },
-                { name: "Motospeed Darmoshark N1 Gaming Mouse Black", price: 1999, img: "../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" },
-                { name: "Logitech M170 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Mouse/Logitech M170 Wireless Mouse Black.png" },
-                { name: "Philips M344 Wireless Mouse Black", price: 999, img: "../../Resources/Images/Products/Philips.png" },
-                { name: "Logitech M171 Wireless Mouse Gray", price: 899, img: "../../Resources/Images/Products/Mouse/Logitech M171 Wireless Mouse Gray.png" },
-                { name: "Prolink PMC1007 Optical Mouse Wired Champagne", price: 799, img: "../../Resources/Images/Products/Mouse/Prolink PMC1007 Optical Mouse Wired Champagne.png" },
-                { name: "Logitech M221 Silent Wireless Mouse Blue", price: 599, img: "../../Resources/Images/Products/Mouse/Logitech M221 Silent Wireless Mouse Blue.png" },
-                { name: "Prolink PMC2002 Optical Mouse Wired", price: 599, img: "../../Resources/Images/Products/Mouse/Prolink PMC2002 Optical Mouse Wired.png" },
-                { name: "Logitech B100 Optical USB Mouse", price: 299, img: "../../Resources/Images/Products/Mouse/Logitech B100 Optical USB Mouse.png" }
-            ];
 
-            const product = products.find(p => p.name === productName);
-
-            if (product) {
-                document.getElementById("productImage").src = product.img;
-                document.getElementById("productName").textContent = product.name;
-                document.getElementById("productPrice").textContent = `₱ ${product.price.toFixed(2)}`;
-            } else {
-                document.getElementById("productDetails").innerHTML = "<p>Product not found.</p>";
-            }
-
-            document.getElementById("addToCartBtn").addEventListener("click", function() {
-                if (product) {
-                    addToCart(product);
-                }
-            });
-        });
-
-        function addToCart(product) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let existingProduct = cart.find(item => item.name === product.name);
-
-            if (existingProduct) {
-                existingProduct.quantity += 1;
-            } else {
-                cart.push({ name: product.name, price: product.price, img: product.img, quantity: 1 });
-            }
-            
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${product.name} added to cart!`);
-        }
-    </script>
 </head>
 <body class="bg-[#E6E6E6] flex flex-col items-center justify-center min-h-screen">
 
@@ -76,6 +29,44 @@
             </button>   
         </div>
     </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    if (typeof products === "undefined") {
+        alert("Products data is missing.");
+        return;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get("name");
+
+    if (!productName) {
+        document.getElementById("productName").textContent = "Product not found.";
+        return;
+    }
+
+    let foundProduct = null;
+    for (const category in products) {
+        if (!products[category]) continue;
+        foundProduct = products[category].find(p => p.name.trim() === productName.trim());
+        if (foundProduct) break;
+    }
+
+    if (foundProduct) {
+        document.getElementById("productImage").src = foundProduct.img;
+        document.getElementById("productName").textContent = foundProduct.name;
+        document.getElementById("productPrice").textContent = `₱ ${foundProduct.price.toFixed(2)}`;
+
+        // ✅ Add event listener to the button
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            addToCart(foundProduct);
+        });
+    } else {
+        document.getElementById("productName").textContent = "Product not found.";
+    }
+});
+
+    </script>
 
 </body>
 </html>
