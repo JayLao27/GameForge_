@@ -12,16 +12,16 @@
             <div>
                 <h3 class="font-bold text-blue-900">Gaming</h3>
                 <ul>
-                    <li><a href="../src/Products/" class="hover:underline">Laptops</a></li>
-                    <li><a href="../Products/keyboard.php" class="hover:underline">Keyboard</a></li>
-                    <li><a href="../Products/mouse.php" class="hover:underline">Mouse</a></li>
+                    <li> <a href="../Products/products.php?category=Laptops"class="hover:underline" >Laptops</a></li>
+                    <li> <a href="../Products/products.php?category=Headset"class="hover:underline">Headset</a></li>
+                    <li> <a href="../Products/products.php?category=Mouse" class="hover:underline">Mouse</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="font-bold text-blue-900">Customer Service</h3>
                 <ul>
                     <li><a href="/src/Main_Pages/contact.php" class="hover:underline">Contact Us</a></li>
-                    <li><a href="" class="hover:underline">About us</a></li>
+                    <li><a href="../Main_Pages/aboutus.php" class="hover:underline">About us</a></li>
                 </ul>
             </div>
             <div>

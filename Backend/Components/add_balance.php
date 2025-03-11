@@ -1,13 +1,9 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include '../../dbconnection/dbconnect.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Main_Pages/signIn.php");
-    exit();
-}
+include 'session_start.php';
+include '../../dbconnection/dbconnect.php';
+include 'fetch.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];

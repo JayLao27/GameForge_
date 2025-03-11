@@ -12,8 +12,10 @@ CREATE TABLE users (
     contactnum VARCHAR(20) UNIQUE NOT NULL,
     address TEXT NOT NULL,
     password VARCHAR(255) NOT NULL,  -- Store hashed passwords
+    profile_image VARCHAR(255) DEFAULT 'default.png', -- New column for profile image
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Wallet Table (One-to-One with Users)
 CREATE TABLE wallet (

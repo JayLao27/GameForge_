@@ -1,10 +1,7 @@
 <?php
+include '../../Backend/session_start.php';
 include '../Template/header.php';
 
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 ?>
 
 <!DOCTYPE html>

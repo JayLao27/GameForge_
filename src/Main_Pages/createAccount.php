@@ -1,4 +1,5 @@
 <?php include '../Template/header.php';
+include '../../Backend/session_start.php';
 include '../../dbconnection/dbconnect.php';
 include '../../Backend/registration.php';
 ?>

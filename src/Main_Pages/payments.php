@@ -1,17 +1,11 @@
 <?php include '../Template/header.php';
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
+include '../../Backend/session_start.php';
 include '../../dbconnection/dbconnect.php';
+include '../../Backend/Components/fetch.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Main_Pages/signIn.php");
-    exit();
-}
+
 $user_id = $_SESSION['user_id'];
-$balance = 0.00; // Default balance to prevent undefined variable warning
+$balance = 0.00;
 
 $query = "SELECT balance FROM wallet WHERE user_id = ?";
 $stmt = $conn->prepare($query);

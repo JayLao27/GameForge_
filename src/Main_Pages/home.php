@@ -1,7 +1,6 @@
-<?php include '../Template/header.php';
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+<?php 
+include '../Template/header.php';
+include '../../Backend/session_start.php';
 
 ?>
 
@@ -22,7 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="space-y-9 w-1/2 relative">
                     <h1 class="text-6xl font-bold text-left font-poppins">HyperX Gaming Headset</h1>
                     <div class="relative top-10 flex space-x-4">
-                    <a href="../Products/mouse.php" class="inline-block">
+                    <a href="../Products/products.php?category=Mouse"class="inline-block">
                         <button class="flex items-center bg-[#FBFF10] font-semibold text-black px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
                             <img src="../../Resources/Images/Icons/Cart.png" alt="Shop Now" class="w-6 h-6 mr-2">
                             <span>Shop Now</span>
@@ -62,7 +61,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="grid grid-cols-3 gap-0 justify-center items-center">
         <div class="border p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Laptops">
-                <img src="/Resources/Images/Products/Laptop/ACER_NITRO_5_AN515-57-584E_GAMING_LAPTOP__SHALE_BLACK_.png" alt="Laptop" class="w-32 h-auto mx-auto">
+                <img src="/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-auto mx-auto">
                 <p class="mt-2 font-medium">Laptop</p>
             </a>
         </div>
@@ -103,7 +102,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <p class="text-xs">seconds</p>
                     </div>
                 </div>
-                <a href="../Products/mouse.php" class="inline-block">
+                <a href="../Products/products.php?category=Laptops" class="inline-block">
                     <button class="bg-[#FBFF10] font-poppins text-black text-sm px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
                         Check it out!
                     </button>
@@ -119,54 +118,55 @@ if (session_status() === PHP_SESSION_NONE) {
             <h2 class="text-2xl font-semibold mb-12">Explore our Products</h2>
 
         <div class="grid ml-25 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
-           
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
+                <a href="../Products/productpage.php?name=MSI%20Thin%2015%20B13UCX-2058PH">
                 <div class="bg-[#FFF7F7] flex justify-center p-6 pb-12">
-                    <img src="/Resources/Images/Home/Iphone16.png" alt="iPhone 16 Pro Max" class="h-40">
+                    <img src="../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" alt="MSI Thin 15" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-2 text-left">
-                    <p class="text-lg font-bold">₱ 45,950.00</p>
-                    <h3 class="text-gray-600 h-12">iPhone 16 Pro Max</h3>
-                </div>
+                    <p class="text-lg font-bold">₱ 73999.00</p>
+                    <h3 class="text-gray-600 h-12">MSI Thin 15 B13UCX-2058PH</h3>
+                </div></a>
             </div>
 
-            
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
+                <a href="../Products/productpage.php?name=Asus%20ROG%20Strix%20G614JV-N4369W">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Home/wooting.png" alt="iPhone 16 Pro Max" class="h-40">
+                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
-                    <p class="text-lg font-bold">₱ 9,700</p>
-                    <h3 class="text-gray-600 h-14">Wooting 60HE Gaming Keyboard</h3>
-                </div>
+                    <p class="text-lg font-bold">₱ 45999.00</p>
+                    <h3 class="text-gray-600 h-14">Asus ROG Strix G614JV-N4369W</h3>
+                </div></a>
             </div>
 
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
+                <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse%20Black">
-                    <img src="/Resources/Images/Home/Motospeed Darmoshark N1 Gaming Mouse Black.jpg" alt="Motospped Darmoshark Mouse" class="h-40"></a>
+                    <img src="/Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 1999.00</p>
                     <h3 class="text-gray-600">Motospeed Darmoshark N1 Gaming Mouse Black</h3>
-                </div>
+                </div></a>
             </div>
 
-            <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Home/Headset.png" alt="iPhone 16 Pro Max" class="h-40 mx-auto mr-10">
+              <div class="border rounded-lg shadow-md overflow-hidden w-75">
+                  <a href="../Products/productpage.php?name=Lenovo%20Lecoo%20HT403%20USB%207.1%20Surround%20Stereo%20Wired%20Gaming%20Headset%20(Black)">
+                  <div class="bg-pink-50 flex justify-center p-6">
+              <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" class="h-40 mx-auto mr-10">
                 </div>
-                <div class="bg-gray-100 p-4 text-left">
-                    <p class="text-lg font-bold pt-2">₱ 3,500</p>
-                    <h3 class="text-gray-600 h-12">HyperX Cloud II Gaming Headset </h3>
+                    <div class="bg-gray-100 p-4 text-left">
+                    <p class="text-lg font-bold pt-2">₱ 2499.00</p>
+                    <h3 class="text-gray-600 text-sm h-12">Lenovo Lecoo HT403 USB 7.1 Surround Stereo Wired Gaming Headset (Black)</h3>
                 </div>
-            </div>
-        </div>
+            </a>
+</div>
     </section>
 
         <div class="w-full h-screen flex justify-center items-center mt-[-200px]">
             <button class="px-6 py-3 bg-[#FBFF10] text-black rounded-md shadow-sm font-poppins hover:text-white hover:bg-blue-600 transition-all duration-700">
-                    <a href="../Products/mouse.php" class="no-underline">View all products</a>
+                    <a href="../Products/products.php?category=Mouse" class="no-underline">View all products</a>
             </button>
         </div>
 

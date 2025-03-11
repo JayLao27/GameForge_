@@ -1,98 +1,98 @@
-<?php include '../Template/header.php';
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Main_Pages/signIn.php");
-    exit(); // Always exit after header redirection
-} ?>
+<?php
+include '../Template/header.php';
+include '../../Backend/session_start.php';
+include '../../Backend/auth_check.php';
+include '../../Backend/Components/fetch.php';
+include '../../dbconnection/dbconnect.php';
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/src/CSS/fonts.css">
+    <link rel="stylesheet" href="../CSS/fonts.css">
     <title>Profile</title>
+    <script>
+        function showEditProfile() {
+            document.getElementById("editProfileContainer").classList.remove("hidden");
+        }
+
+        function closeEditProfile() {
+            document.getElementById("editProfileContainer").classList.add("hidden");
+        }
+    </script>
 </head>
+
 <body class="bg-gray-100">
     
-    <!-- main container -->
+    <!-- Main Container -->
     <div class="min-h-screen flex">
-        <!-- side -->
+        
+        <!-- Sidebar -->
         <aside class="w-1/3 h-210 mt-10 flex flex-col justify-start items-center gap-10 bg-white border-r-2 border-black p-6">
-                <h2 class="text-2xl font-bold text-center mb-6">Account Info</h2>
-                <nav class="ml-[-25px] flex flex-col gap-4">
+            <h2 class="text-2xl font-bold text-center mb-6">Account Info</h2>
+            <nav class="ml-[-25px] flex flex-col gap-4">
                 <a href="profile.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700">Profile</a>
                 <a href="payments.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700 mt-2">Payment</a>
                 <a href="orderhistory.php" class="inline-flex text-left text-black font-quicksand font-bold hover:text-blue-600 transition-all duration-700 mt-2">Order History</a>
-                  </nav>  
-
+            </nav>  
         </aside>
 
-        <!-- main content -->
+        <!-- Main Content -->
         <main class="flex-1 p-10">
             <div class="max-w-3xl mx-[100px] bg-white p-12 rounded-lg shadow">
-
                 <div class="flex-col space-y-4 ml-5">
                     <h1 class="font-poppins font-bold text-base">YOUR ACCOUNT</h1>
-                    <span class="font-poppins font-semibold opacity-75">Edit your profile</span>
                 </div>
                 
                 <div class="flex flex-col items-center mb-6 space-y-8">
-                    <img class="w-24 h-24 rounded-full border-4 border-gray-300" src="../uploads/default.png" alt="Profile Picture">
+                    <!-- Profile Picture -->
+                    <img src="../../uploads/<?php echo $_SESSION['profile_image'] ?? 'default.jpg'; ?>" class="w-24 h-24 rounded-full border-4 border-gray-300" alt="Profile Picture">
                     
-                    <form class="mt-4">
-                        <input type="file" accept="image/*" class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-gray-200 hover:file:bg-gray-300">
-                    </form>
+                    <!-- Edit Profile Button -->
+                    <button onclick="showEditProfile()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Edit Profile</button>
                 </div>
 
-                <!-- fields -->
-                <form class="space-y-8 pl-8">
+                <!-- User Details -->
+                <div class="space-y-6 pl-8">
                     <div>
-                        <label class="block text-gray-700 font-semibold">Username</label>
-                        <input type="text" value="" class="w-[500px] mt-1 p-2 border rounded-lg bg-gray-100">
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-700 font-semibold">First Name</label>
-                        <input type="text" value="" class="w-[500px] mt-1 p-2 border rounded-lg bg-gray-100">
+                        <span class="block text-black font-bold">Username</span>
+                        <span class="block text-lg text-gray-900 font-bold"><?php echo $_SESSION['username'] ?? 'Name'; ?></span>
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-semibold">Last Name</label>
-                        <input type="text" value="" class="w-[500px] mt-1 p-2 border rounded-lg bg-gray-100">
+                        <span class="block text-black font-bold">First Name</span>
+                        <span class="block text-lg text-gray-900 font-bold"><?php echo $_SESSION['firstname'] ?? 'fName'; ?></span>
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-semibold">Email</label>
-                        <input type="email" value="" class="w-[500px] mt-1 p-2 border rounded-lg bg-gray-100">
+                        <span class="block text-black font-bold">Last Name</span>
+                        <span class="block text-lg text-gray-900 font-bold"><?php echo $_SESSION['lastname'] ?? 'lname'; ?></span>
                     </div>
 
-                    <div class="flex space-x-3">
-                        <div class="w-1/2">
-                            <label class="block text-gray-700 font-semibold">Password</label>
-                            <input type="password" value="password" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 opacity-75">
-                        </div>
-                        <div class="w-1/2">
-                            <label class="block text-gray-700 font-semibold">Retype Password</label>
-                            <input type="password" value="password" placeholder="password" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 opacity-75">
-                        </div>
+                    <div>
+                        <span class="block text-black font-bold">Email</span>
+                        <span class="block text-lg text-gray-900 font-bold"><?php echo $_SESSION['email'] ?? 'Email'; ?></span>
                     </div>
-
-                <!-- buttons area -->
-                    <div class="flex justify-center space-x-6 mt-6">
-                        <button class="px-10 py-3 bg-[#FBFF10] text-black font-bold rounded-full shadow-md hover:bg-blue-600 transition-all duration-700 hover:text-white">CANCEL
-                        </button>
-                        <button class="px-10 py-3 bg-[#FBFF10] text-black font-bold rounded-full shadow-md hover:bg-blue-600 transition-all duration-700
-                        hover:text-white">SAVE
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
         </main>
     </div>
 
-<?php include '../Template/footer.php'; ?>
+    <!-- Edit Profile Modal -->
+    <div id="editProfileContainer" class="hidden fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg relative w-160">
+            <!-- Close Button -->
+            <button onclick="closeEditProfile()" class="absolute top-2 right-2 bg-gray-300 px-3 py-1 rounded-full">X</button>
+
+            <?php include 'editprofile.php'; ?>
+        </div>
+    </div>
+
+    <?php include '../Template/footer.php'; ?>
 
 </body>
 </html>
-

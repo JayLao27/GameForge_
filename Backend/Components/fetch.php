@@ -1,26 +1,24 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+
+include '../../dbconnection/dbconnect.php';
+
+$user_id = $_SESSION['user_id'];
+
+$query = "SELECT username, firstname, lastname, email, profile_image FROM users WHERE id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $_SESSION['username'] = $row['username'];
+    $_SESSION['firstname'] = $row['firstname'];
+    $_SESSION['lastname'] = $row['lastname'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['profile_image'] = $row['profile_image']; 
 }
-
-include __DIR__ . '/../../dbconnection/dbconnect.php'; 
-
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-
-    // Fetch the first name from the database
-    $query = "SELECT firstname FROM users WHERE email = ?";
-    $stmt = $conn->prepare($query);
-
-    if ($stmt) {
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($row = $result->fetch_assoc()) {
-            $_SESSION['firstname'] = $row['firstname']; // Store first name in session
-        }
-        $stmt->close();
-    }
-}
+$profile_image = !empty($profile_image) ? '../../uploads/' . $profile_image : '../../Resources/Images/Icons/Profile.png';
+?>
+$stmt->close();
+$conn->close();
 ?>

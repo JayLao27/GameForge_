@@ -1,12 +1,10 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-error_log("Session Username: " . ($_SESSION['username'] ?? "Not Set"));
+
+include '../../Backend/session_start.php';
+include '../../dbconnection/dbconnect.php';
 
 
-include __DIR__ . '/../../Backend/Components/fetch.php'; 
-include __DIR__ . '/../../dbconnection/dbconnect.php'; 
+
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +45,11 @@ include __DIR__ . '/../../dbconnection/dbconnect.php';
                 </button>
             </a>
             <a href="../../src/Main_Pages/profile.php">
-                <button class="text-black hover:text-blue-600 flex items-center">
-                    <img src="../../Resources/Images/Icons/Profile.png" alt="Profile" class="h-6 w-6">
-                </button>
-            </a>
+            <button class="text-black hover:text-blue-600 flex items-center">
+            <img id="profilePic" src="<?php echo isset($_SESSION['profile_image']) && !empty($_SESSION['profile_image']) ? '../../uploads/' . $_SESSION['profile_image'] : '../../Resources/Images/Icons/Profile.png'; ?>?t=<?php echo time(); ?>" alt="Profile" class="h-10 w-10 rounded-full border border-gray-300">
+            </button>
+        </a>
+
 
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                 <span class="text-black font-semibold"><?= "Hi, " . htmlspecialchars($_SESSION['firstname'] ?? 'User' ); ?></span>

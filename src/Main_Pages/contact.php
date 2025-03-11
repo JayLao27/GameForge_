@@ -1,9 +1,6 @@
 <?php 
 include '../Template/header.php';
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Main_Pages/signIn.php");
-    exit();
-}
+include '../../Backend/auth_check.php';
  ?>
 
 <!DOCTYPE html>
