@@ -136,7 +136,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="/Resources/Images/Home/Motospeed Darmoshark N1 Gaming Mouse Black.jpg" alt="Motospped Darmoshark Mouse" class="h-40">
+                    <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse%20Black">
+                    <img src="/Resources/Images/Home/Motospeed Darmoshark N1 Gaming Mouse Black.jpg" alt="Motospped Darmoshark Mouse" class="h-40"></a>
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 1,500</p>
