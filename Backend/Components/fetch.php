@@ -41,4 +41,23 @@ function fetchWalletBalance($conn, $user_id) {
     }
 }
 
+// Function to fetch cart items
+function fetchUserCart($conn, $user_id) {
+    $query = "SELECT id, product_name, price, quantity, img FROM cart WHERE user_id = ?";
+    $stmt = $conn->prepare($query);
+    
+    if ($stmt) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        $_SESSION['cart'] = [];
+        while ($row = $result->fetch_assoc()) {
+            $_SESSION['cart'][] = $row;
+        }
+        
+        $stmt->close();
+    }
+}
+
 ?>

@@ -34,8 +34,6 @@ let products = {
     { name: "Redragon Hylas Gaming Headset (H260RGB)", price: 2299, img: "../../Resources/Images/Products/Headset/Redragon_Hylas_Gaming_Headset__H260RGB_-removebg-preview.png" }
 ]
 };
-
-// Track the selected category
 let selectedCategory = "Mouse"; 
 let isHighToLow = true;
 
@@ -49,10 +47,11 @@ function renderProducts(category) {
     if (products[category]) {
         products[category].forEach(product => {
             productGrid.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="redirectToProduct('${product.name}')">
+                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer">
                     <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
                     <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
                     <p class="text-m font-bold text-gray-600">${product.name}</p>
+                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
                 </div>
             `;
         });
@@ -70,7 +69,7 @@ function togglePriceSort() {
     if (products[selectedCategory]) {
         products[selectedCategory].sort((a, b) => isHighToLow ? b.price - a.price : a.price - b.price);
         document.getElementById("priceOrder").textContent = isHighToLow ? "High to Low" : "Low to High";
-        renderProducts(selectedCategory); // Sorts and re-renders the current category
+        renderProducts(selectedCategory);
     }
 }
 
@@ -84,21 +83,27 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("renderProducts function not found!");
     }
 
-    // Attach event listener to price filter button
     document.getElementById("priceFilter").addEventListener("click", togglePriceSort);
 });
 
+function showCartMessage(productName) {
+    const cartMessage = document.getElementById("cartMessage");
+    cartMessage.textContent = `${productName} added to cart!`;
+    cartMessage.classList.remove("hidden");
+    cartMessage.classList.add("block");
 
-  function addToCart(product) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let existingProduct = cart.find(item => item.name === product.name);
+    // Hide message after 3 seconds
+    setTimeout(() => {
+        cartMessage.classList.add("hidden");
+    }, 3000);
+}
 
-            if (existingProduct) {
-                existingProduct.quantity += 1;
-            } else {
-                cart.push({ name: product.name, price: product.price, img: product.img, quantity: 1 });
-            }
-            
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${product.name} added to cart!`);
-        }
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Show message instead of alert
+    showCartMessage(product.name);
+}
+

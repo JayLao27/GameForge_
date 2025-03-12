@@ -1,3 +1,4 @@
+mysql -h localhost -u root
 -- Create database
 CREATE DATABASE gameforge_db;
 USE gameforge_db;
@@ -12,7 +13,7 @@ CREATE TABLE users (
     contactnum VARCHAR(20) UNIQUE NOT NULL,
     address TEXT NOT NULL,
     password VARCHAR(255) NOT NULL,  -- Store hashed passwords
-    profile_image VARCHAR(255) DEFAULT 'default.png', -- New column for profile image
+    profile_image VARCHAR(255) DEFAULT 'uploads/default.png',-- New column for profile image
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -38,15 +39,16 @@ CREATE TABLE products (
 
 -- Cart Table (Added Indexes)
 CREATE TABLE cart (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT, 
-    product_id INT, 
-    quantity INT NOT NULL CHECK (quantity > 0),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
-    INDEX(user_id),  
-    INDEX(product_id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    img VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
 
 -- Orders Table
 CREATE TABLE orders (

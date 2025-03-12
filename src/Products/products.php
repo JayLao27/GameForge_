@@ -9,12 +9,18 @@ include '../../Backend/auth_check.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="products.js" defer></script>
 </head>
 <body class="bg-[#E6E6E6] min-h-screen">
     <div class="flex min-h-screen">
         <aside class="w-1/6 p-7">
+        <div id="cartMessage" class="hidden bg-green-500 text-white px-4 py-2 rounded shadow-lg fixed top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    Item added to cart!
+</div>
+
+
             <h2 class="text-3xl font-bold mx-4 my-4 mb-6">Category</h2>
             <nav class="mt-4 space-y-2">
             <button onclick="renderProducts('Mouse')" class="block w-60 text-left px-4 py-2 rounded-lg bg-gray-300 hover:bg-blue-700 hover:text-white font-bold transition-al">Mouse</button>
@@ -25,6 +31,8 @@ include '../../Backend/auth_check.php';
         
         <main class="flex-1">
             <div class="flex justify-end mb-4 mt-4 mr-4">
+            <a href="../Main_pages/cart.php" class="bg-blue-500 text-white px-4 mr-5 py-2 rounded hover:bg-blue-600 transition"> Check it out! </a>
+
                 <button id="priceFilter" class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow">
                     Price range: <span id="priceOrder">High to Low</span> <span>&#9662;</span>
                 </button>

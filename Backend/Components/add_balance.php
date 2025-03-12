@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amount = floatval($_POST['amount']);
 
     if ($amount > 0) {
-        // Ensure the user has a wallet entry
+        // Ensure the user has a wallet entry   
         $check_query = "SELECT * FROM wallet WHERE user_id = ?";
         $stmt = $conn->prepare($check_query);
         

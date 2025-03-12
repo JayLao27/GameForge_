@@ -25,7 +25,7 @@ include '../Template/header.php';
 
         <!-- Right Side: Image -->
         <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
-            <img src="/Gameforge_/Resources/Images/aboutusimg.png" alt="Gaming Gear" 
+            <img src="../../Resources/Images/aboutusimg.png" alt="Gaming Gear" 
                 class="rounded-lg shadow-md w-[300px] md:w-[350px] h-auto">
         </div>
     </div>
@@ -33,7 +33,7 @@ include '../Template/header.php';
     <!-- Description Section -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 px-10 md:px-0 mb-20">
     <!-- Left Image -->
-    <img src="/Gameforge_/Resources/Images/mouse&keyboardAbout.png" alt="Gaming Keyboard and Mouse" class="w-1/3 pr-2 max-w-xs">
+    <img src="../../Resources/Images/mouse&keyboardAbout.png" alt="Gaming Keyboard and Mouse" class="w-1/3 pr-2 max-w-xs">
 
     <!-- Text Section -->
     <div class="w-full max-w-3xl text-black text-lg leading-loose text-center md:text-justify">
@@ -42,13 +42,13 @@ include '../Template/header.php';
             At GameForge, we’re passionate about gaming and dedicated to providing gamers with the tools they need to dominate the virtual battlefield.
             <br><br>
             We specialize in offering top-quality <span class="font-semibold">gaming laptops</span>, <span class="font-semibold">gaming keyboards</span>, and 
-            <span class="font-semibold">gaming mice</span> from the most trusted brands in the industry. Whether you’re a casual gamer, a competitive esports player, or a 
+            <span class="font-semibold">gaming mouse</span> from the most trusted brands in the industry. Whether you’re a casual gamer, a competitive esports player, or a 
             tech enthusiast, we’ve got the perfect gear to level up your gaming experience.
         </p>
     </div>
 
     <!-- Right Image -->
-    <img src="/Gameforge_/Resources/Images/laptopabt.png" alt="Gaming Laptop" class="w-1/3 pl-2 max-w-xs">
+    <img src="../../Resources/Images/laptopabt.png" alt="Gaming Laptop" class="w-1/3 pl-2 max-w-xs">
 </div>
 
 
