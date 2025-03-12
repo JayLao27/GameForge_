@@ -12,7 +12,7 @@ include '../../Backend/auth_check.php';
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     </head>
-<body class="bg-[#FFF6F6]">
+<body class="bg-[#E6E6E6]">
     <div class="min-h-screen flex items-center justify-center mt-[-100px]">
         <div class="container mx-auto px-8 lg:px-20">
             <div class="flex flex-col lg:flex-row items-center lg:items-center">

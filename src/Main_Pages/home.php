@@ -59,19 +59,19 @@ include '../../Backend/session_start.php';
         <!-- browse sect -->
         <section id="Shop" class="text-center w-2xl">
     <div class="grid grid-cols-3 gap-0 justify-center items-center">
-        <div class="border p-2 rounded-lg w-max mx-auto">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Laptops">
-                <img src="../../Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-auto mx-auto">
+                <img src="../../Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-25 mx-auto">
                 <p class="mt-2 font-medium">Laptop</p>
             </a>
         </div>
-        <div class="border p-2 rounded-lg w-max mx-auto">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Mouse">
                 <img src="../../Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
                 <p class="mt-2 font-medium">Mouse</p>
             </a>
         </div>
-        <div class="border p-2 rounded-lg w-max mx-auto">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto">
             <a href="../Products/products.php?category=Headset">
                 <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" alt="Headset" class="w-25 h-auto mx-3">
                 <p class="mt-2 font-medium">Headset</p>
@@ -132,7 +132,7 @@ include '../../Backend/session_start.php';
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <a href="../Products/productpage.php?name=Asus%20ROG%20Strix%20G614JV-N4369W">
                 <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-40">
+                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-44">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold">₱ 45999.00</p>

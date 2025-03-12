@@ -51,10 +51,10 @@ function renderProducts(category) {
                     <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
                     <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
                     <p class="text-m font-bold text-gray-600">${product.name}</p>
-                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 hover:bg-[#FBFF10] transition-all duration-400 ease-in-out rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
                 </div>
             `;
-        });
+        }); 
     } else {
         productGrid.innerHTML = `<p class="text-center text-gray-500">No products available in this category.</p>`;
     }

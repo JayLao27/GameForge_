@@ -48,11 +48,11 @@ while ($row = $result->fetch_assoc()) {
                 </thead>
                 <tbody id="cartItems"></tbody>
             </table>
-            <button onclick="clearCart()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded">Clear Cart</button>
+            <button onclick="clearCart()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-all duration-400">Clear Cart</button>
         </div>
         <div class="mt-6 text-right">
             <p class="text-xl font-semibold">Total: <span id="totalPrice">₱0.00</span></p>
-            <button onclick="checkout()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">CHECKOUT</button>
+            <button onclick="checkout()" class="mt-4 px-4 py-2 bg-[#FBFF10] text-black hover:text-white hover:bg-blue-600 transition-all duration-400 rounded">CHECKOUT</button>
         </div>
     </div>
 </body>

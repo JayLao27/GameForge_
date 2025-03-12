@@ -5,6 +5,8 @@ include_once '../../Backend/Components/fetch.php';
 include '../../dbconnection/dbconnect.php';
 if (isset($_SESSION['user_id'])) {
     fetchUserDetails($conn, $_SESSION['user_id']);
+
+
 }
 ?>
 <!DOCTYPE html>
