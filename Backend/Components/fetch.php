@@ -1,24 +1,44 @@
 <?php
 
+include realpath(__DIR__ . '/../session_start.php') ?: die("session_start.php not found");
 include '../../dbconnection/dbconnect.php';
 
-$user_id = $_SESSION['user_id'];
+// Function to fetch user details
+function fetchUserDetails($conn, $user_id) {
+    $query = "SELECT username, firstname, lastname, email, profile_image FROM users WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    
+    if ($stmt) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-$query = "SELECT username, firstname, lastname, email, profile_image FROM users WHERE id = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['firstname'] = $row['firstname'];
+            $_SESSION['lastname'] = $row['lastname'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['profile_image'] = $row['profile_image']; 
+        }
 
-if ($row = $result->fetch_assoc()) {
-    $_SESSION['username'] = $row['username'];
-    $_SESSION['firstname'] = $row['firstname'];
-    $_SESSION['lastname'] = $row['lastname'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['profile_image'] = $row['profile_image']; 
+        $stmt->close();
+    }
 }
-$profile_image = !empty($profile_image) ? '../../uploads/' . $profile_image : '../../Resources/Images/Icons/Profile.png';
-?>
-$stmt->close();
-$conn->close();
+
+// Function to fetch wallet balance
+function fetchWalletBalance($conn, $user_id) {
+    $balance = 0.00;
+    $query = "SELECT balance FROM wallet WHERE user_id = ?";
+    $stmt = $conn->prepare($query);
+    
+    if ($stmt) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $stmt->bind_result($balance);
+        $stmt->fetch();
+        $_SESSION['balance'] = $balance; // Store balance in session
+        $stmt->close();
+    }
+}
+
 ?>

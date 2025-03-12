@@ -1,9 +1,12 @@
 <?php
-include '../Template/header.php';
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
+include '../Template/header.php';
 include '../../Backend/Components/fetch.php';
 include '../../dbconnection/dbconnect.php';
+if (isset($_SESSION['user_id'])) {
+    fetchUserDetails($conn, $_SESSION['user_id']);
+}
 ?>
 
 
@@ -50,7 +53,7 @@ include '../../dbconnection/dbconnect.php';
                 
                 <div class="flex flex-col items-center mb-6 space-y-8">
                     <!-- Profile Picture -->
-                    <img src="../../uploads/<?php echo $_SESSION['profile_image'] ?? 'default.jpg'; ?>" class="w-24 h-24 rounded-full border-4 border-gray-300" alt="Profile Picture">
+                   <img src="../../uploads/<?php echo $_SESSION['profile_image'] ?? 'default.jpg'; ?>" class="w-24 h-24 rounded-full border-4 border-gray-300" alt="Profile Picture">
                     
                     <!-- Edit Profile Button -->
                     <button onclick="showEditProfile()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Edit Profile</button>

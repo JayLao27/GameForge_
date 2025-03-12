@@ -70,6 +70,34 @@ include '../../Backend/auth_check.php';
             localStorage.removeItem("cart");
             loadCart();
         }
+
+        function checkout() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            fetch("cart_backend.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(cart)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    localStorage.removeItem("cart"); 
+                    loadCart(); 
+                    alert("Checkout successful!");
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while checking out. Please try again later.");
+            });
+        }
     </script>
 </head> 
 <body class="bg-gray-200">
@@ -92,114 +120,8 @@ include '../../Backend/auth_check.php';
         <div class="mt-6 text-right">
             <p class="text-xl font-semibold">Total: <span id="totalPrice">₱0.00</span></p>
             <button onclick="checkout()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">CHECKOUT</button>
-
-<script>
-   function checkout() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length === 0) {
-        alert("Your cart is empty.");
-        return;
-    }
-
-    alert("Checking out... Please wait.");
-
-    fetch("cart.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cart)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            localStorage.removeItem("cart"); // Clear cart after checkout
-            loadCart(); // Refresh cart display
-            alert("Checkout successful!");
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("An error occurred while checking out. Please try again later.");
-    });
-}
-
-
-</script>
-
         </div>
     </div>
 </body>
 </html>
-<?php
-include '../Template/footer.php';
-include '../../dbconnection/dbconnect.php';
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!isset($_SESSION['user_id'])) {
-        echo json_encode(["status" => "error", "message" => "User not logged in."]);
-        exit;
-    }
-
-    $user_id = $_SESSION['user_id']; // Get logged-in user ID
-    $cart = json_decode(file_get_contents('php://input'), true);
-
-    if (empty($cart)) {
-        echo json_encode(["status" => "error", "message" => "Cart is empty."]);
-        exit;
-    }
-
-    // Calculate total price
-    $total_price = 0;
-    foreach ($cart as $item) {
-        $total_price += $item['price'] * $item['quantity'];
-    }
-
-    // Check user balance
-    $stmt = $conn->prepare("SELECT balance FROM users WHERE id = ?");
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $stmt->bind_result($balance);
-    $stmt->fetch();
-    $stmt->close();
-
-    if ($balance < $total_price) {
-       alert(["status" => "error", "message" => "Insufficient balance."]);
-        exit;
-    }
-
-    // Deduct balance
-    $stmt = $conn->prepare("UPDATE users SET balance = balance - ? WHERE id = ?");
-    $stmt->bind_param("di", $total_price, $user_id);
-    if (!$stmt->execute()) {
-        echo json_encode(["status" => "error", "message" => "Failed to update balance."]);
-        exit;
-    }
-
-    // Insert into `orders` table
-    $stmt = $conn->prepare("INSERT INTO orders (user_id, total, status) VALUES (?, ?, 'pending')");
-    $stmt->bind_param("id", $user_id, $total_price);
-    if ($stmt->execute()) {
-        $order_id = $stmt->insert_id;
-
-        // Insert each cart item into `order_items` table
-        $stmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)");
-        foreach ($cart as $item) {
-            $stmt->bind_param("iiid", $order_id, $item['id'], $item['quantity'], $item['price']);
-            $stmt->execute();
-        }
-
-        echo json_encode(["status" => "success", "message" => "Order placed successfully"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Failed to place order."]);
-    }
-
-    $stmt->close();
-    $conn->close();
-    exit;
-}
-?>
+<?php include '../Template/footer.php'; ?>

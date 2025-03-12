@@ -1,25 +1,17 @@
-<?php include '../Template/header.php';
-include '../../Backend/session_start.php';
+<?php 
+include '../Template/header.php';
+include 'C:/Users/Cjay/OneDrive/Desktop/Gameforge/GameForge--/Backend/session_start.php';
 include '../../dbconnection/dbconnect.php';
-include '../../Backend/Components/fetch.php';
+include '../../Backend/Components/fetch.php'; // Include fetch.php
 
+$user_id = $_SESSION['user_id'] ?? 0;
 
-$user_id = $_SESSION['user_id'];
-$balance = 0.00;
-
-$query = "SELECT balance FROM wallet WHERE user_id = ?";
-$stmt = $conn->prepare($query);
-if ($stmt) {
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $stmt->bind_result($balance);
-    $stmt->fetch();
-    $stmt->close();
-} else {
-    die("Error in fetching balance.");
+if ($user_id > 0) {
+    fetchWalletBalance($conn, $user_id);
 }
-?>
 
+$balance = $_SESSION['balance'] ?? 0.00; // Get the balance from session
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,18 +37,19 @@ if ($stmt) {
         <!-- Main Content -->
         <main class="flex-1 p-10">
             <div class="max-w-3xl mx-[100px] bg-white p-12 rounded-lg shadow">
-            <div class="bg-white p-10 rounded-lg shadow-lg w-[400px] text-center border border-gray-300">
-                <h1 class="text-2xl font-bold mb-6">Wallet Balance</h1>
-                <p class="text-gray-700 text-xl font-semibold mb-4">₱<?php echo number_format($balance, 2); ?></p>
-                
-                <form action="../../Backend/Components/add_balance.php" method="POST" class="space-y-4">
-                    <label class="block text-gray-700 font-semibold">Add Money</label>
-                    <input type="number" name="amount" step="0.01" min="1" class="w-full p-2 border rounded-lg bg-gray-100" required>
+                <div class="bg-white p-10 rounded-lg shadow-lg w-[400px] text-center border border-gray-300">
+                    <h1 class="text-2xl font-bold mb-6">Wallet Balance</h1>
+                    <p class="text-gray-700 text-xl font-semibold mb-4">₱<?php echo number_format($balance, 2); ?></p>
+                    
+                    <form action="../../Backend/Components/add_balance.php" method="POST" class="space-y-4">
+                        <label class="block text-gray-700 font-semibold">Add Money</label>
+                        <input type="number" name="amount" step="0.01" min="1" class="w-full p-2 border rounded-lg bg-gray-100" required>
 
-                    <button type="submit" class="w-full px-6 py-2 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition-all duration-700">
-                        Add Balance
-                    </button>
-                </form>
+                        <button type="submit" class="w-full px-6 py-2 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition-all duration-700">
+                            Add Balance
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
