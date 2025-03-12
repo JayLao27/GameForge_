@@ -1,6 +1,11 @@
 <?php include '../Template/header.php'; 
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
+
+
+$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+
 ?>
 
 <!DOCTYPE html>

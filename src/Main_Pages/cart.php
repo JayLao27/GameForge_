@@ -6,7 +6,7 @@ include '../../Backend/auth_check.php';
 $user_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM cart WHERE user_id = $user_id");
 
-echo "<h2>Shopping Cart</h2>";
+
 while ($row = $result->fetch_assoc()) {
     echo "<div>
             <img src='{$row['img']}' width='100'>
