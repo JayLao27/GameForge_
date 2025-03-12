@@ -1,7 +1,8 @@
 <?php 
-include '../Template/header.php';
+
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
+include '../Template/header.php';
 
 $user_id = $_SESSION['user_id'];
 $result = $conn->query("SELECT * FROM cart WHERE user_id = $user_id");
@@ -25,7 +26,6 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="cart.js" defer></script>

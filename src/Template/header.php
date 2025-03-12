@@ -29,10 +29,10 @@ include '../../dbconnection/dbconnect.php';
         </a>
 
         <nav class="hidden md:flex items-center space-x-12 mt-3">
-            <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">Home</a>
-            <a href="../../src/Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700  ">About</a>
-            <a href="../Products/products.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Shop</a>
-            <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 ">Contact</a>
+            <a href="../../src/Main_Pages/home.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-500 ease-in-out">Home</a>
+            <a href="../../src/Main_Pages/aboutus.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-500 ease-in-out">About</a>
+            <a href="../Products/products.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-500 ease-in-out">Shop</a>
+            <a href="../../src/Main_Pages/contact.php" class="text-[18px] font-quattrocento text-black hover:text-blue-700 transition-all duration-500 ease-in-out">Contact</a>
         </nav>
 
         <div class="flex justify-center items-center space-x-6 mt-2 mr-12">
@@ -67,10 +67,10 @@ include '../../dbconnection/dbconnect.php';
 
 
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                <span class="text-black font-semibold"><?= "Hi, " . htmlspecialchars($_SESSION['firstname'] ?? 'User' ); ?></span>
+                <span class="text-blue-700 font-semibold"><?= "Hi, " . htmlspecialchars($_SESSION['firstname'] ?? 'User' ); ?></span>
 
                 <form action="../../Backend/logout.php" method="POST" style="display:inline;">
-                    <button type="submit" class="border-none text-black hover:text-bl   ue-600 bg-transparent">Logout</button>
+                    <button type="submit" class="font-poppins pb-[1px] text-[14px] border-none text-black hover:text-blue-600 bg-transparent">Logout</button>
                 </form>
             <?php else: ?>
                 <a href="../../src/Main_Pages/signIn.php" class="border-none text-black hover:text-blue-600">Sign In</a>

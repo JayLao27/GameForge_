@@ -13,7 +13,6 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
     <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl flex">

@@ -14,7 +14,6 @@ $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
     <script src="products.js" defer></script>
 </head>

@@ -1,9 +1,9 @@
 <?php
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
-include '../Template/header.php';
 include '../../Backend/Components/fetch.php';
 include '../../dbconnection/dbconnect.php';
+include '../Template/header.php';
 if (isset($_SESSION['user_id'])) {
     fetchUserDetails($conn, $_SESSION['user_id']);
 }
