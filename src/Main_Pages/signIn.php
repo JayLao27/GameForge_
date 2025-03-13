@@ -23,7 +23,7 @@ include '../Template/header.php';
 
         <!-- Display Error Message -->
         <?php if (isset($_SESSION['error_message'])): ?>
-            <div id="error-message" class="bg-red-600 text-black px-4 py-2 rounded-lg shadow-md w-full text-center mt-50">
+            <div id="error-message" class="bg-red-600 text-white opacity-75 px-4 py-2 rounded-lg shadow-md w-full text-center mt-50">
                 <?php echo htmlspecialchars($_SESSION['error_message']); ?>
             </div>
             <script>

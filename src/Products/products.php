@@ -1,11 +1,8 @@
-<?php include '../Template/header.php'; 
+<?php 
+include '../Template/header.php'; 
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
-
-
 $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +12,7 @@ $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
-    <script src="products.js" defer></script>
+    <script src="../JS/products.js" defer></script>
 </head>
 <body class="bg-[#E6E6E6] min-h-screen">
     <div class="flex min-h-screen">
@@ -35,8 +32,13 @@ $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
         
         <main class="flex-1">
             <div class="flex justify-end mb-4 mt-4 mr-4">
-            <a href="../Main_pages/cart.php" class="bg-blue-500 text-white px-4 mr-5 py-2 rounded hover:bg-blue-600 transition"> Check it out! </a>
-
+            <a href="../Main_pages/cart.php" 
+            class="bg-white text-black px-4 mr-5 py-2 rounded transition 
+          hover:bg-blue-500
+          active:bg-blue-500 active:text-white flex items-center space-x-2">
+                 <img src="../../Resources/Images/Icons/Cart.png" class="invert brightness-0 w-6" alt=""> 
+                <span>Cart</span>
+                </a>
                 <button id="priceFilter" class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow">
                     Price range: <span id="priceOrder">High to Low</span> <span>&#9662;</span>
                 </button>

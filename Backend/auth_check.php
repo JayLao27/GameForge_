@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'session_start.php'; // Ensure session is started
 
 // Get the current script name

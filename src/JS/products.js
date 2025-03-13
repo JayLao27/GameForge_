@@ -37,28 +37,16 @@ let products = {
 let selectedCategory = "Mouse"; 
 let isHighToLow = true;
 
-function renderProducts(category) {
-    selectedCategory = category; 
-    const productGrid = document.getElementById("productGrid");
-    if (!productGrid) return; 
-
-    productGrid.innerHTML = ""; 
-
-    if (products[category]) {
-        products[category].forEach(product => {
-            productGrid.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer">
-                    <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
-                    <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
-                    <p class="text-m font-bold text-gray-600">${product.name}</p>
-                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
-                </div>
-            `;
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            renderProducts(selectedCategory);
         });
-    } else {
-        productGrid.innerHTML = `<p class="text-center text-gray-500">No products available in this category.</p>`;
     }
-}
+});
+
 
 function redirectToProduct(productName) {
     window.location.href = `productpage.php?name=${encodeURIComponent(productName)}`;
@@ -92,7 +80,7 @@ function showCartMessage(productName) {
     cartMessage.classList.remove("hidden");
     cartMessage.classList.add("block");
 
-    // Hide message after 3 seconds
+   
     setTimeout(() => {
         cartMessage.classList.add("hidden");
     }, 3000);
@@ -100,10 +88,12 @@ function showCartMessage(productName) {
 
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
+    cart.push({
+        name: product.name,
+        price: product.price,
+        img: product.img
+    });
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Show message instead of alert
     showCartMessage(product.name);
 }
 

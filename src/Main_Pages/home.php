@@ -10,7 +10,7 @@ include '../../Backend/session_start.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
+    <link rel="stylesheet" href="../src/CSS/fonts.css">
     <script src="../Products/products.js" defer></script>
     <title>GameForge</title>
 </head>
@@ -81,7 +81,7 @@ include '../../Backend/session_start.php';
 </section>
 
         <!-- laptop sect -->
-        <section class="w-full flex flex-col md:flex-row items-center mt-16 bg-gray-100 rounded-lg p-10">
+        <section class="w-full flex flex-col md:flex-row items-center mt-16 bg-gray-100 rounded-lg p-10 mb-[100px]">
             <div class="w-full md:w-1/2 space-y-6">
                 <h2 class="text-4xl font-bold">Enhance your Gaming<br><span class="pt-4 inline-block"></span> Experience</h2>
                 <div class="flex space-x-4 text-center mt-20 mb-10">
@@ -113,62 +113,6 @@ include '../../Backend/session_start.php';
             </div>
         </section>
     </div>
-            <!--Explore sect -->
-        <section class="w-full mt-40 px-8 lg:px-20">
-            <h2 class="text-2xl font-semibold mb-12">Explore our Products</h2>
-
-        <div class="grid ml-25 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
-            <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=MSI%20Thin%2015%20B13UCX-2058PH">
-                <div class="bg-[#FFF7F7] flex justify-center p-6 pb-12">
-                    <img src="../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" alt="MSI Thin 15" class="h-40">
-                </div>
-                <div class="bg-gray-100 p-2 text-left">
-                    <p class="text-lg font-bold">₱ 73999.00</p>
-                    <h3 class="text-gray-600 h-12">MSI Thin 15 B13UCX-2058PH</h3>
-                </div></a>
-            </div>
-
-            <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=Asus%20ROG%20Strix%20G614JV-N4369W">
-                <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-40">
-                </div>
-                <div class="bg-gray-100 p-4 text-left">
-                    <p class="text-lg font-bold">₱ 45999.00</p>
-                    <h3 class="text-gray-600 h-14">Asus ROG Strix G614JV-N4369W</h3>
-                </div></a>
-            </div>
-
-            <div class="border rounded-lg shadow-sm overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse">
-                <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
-                </div>
-                <div class="bg-gray-100 p-4 text-left">
-                    <p class="text-lg font-bold pt-2">₱ 1999.00</p>
-                    <h3 class="text-gray-600">Motospeed Darmoshark N1 Gaming Mouse Black</h3>
-                </div></a>
-            </div>
-
-              <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                  <a href="../Products/productpage.php?name=Lenovo%20Lecoo%20HT403%20USB%207.1%20Surround%20Stereo%20Wired%20Gaming%20Headset%20(Black)">
-                  <div class="bg-pink-50 flex justify-center p-6">
-              <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" class="h-40 mx-auto mr-10">
-                </div>
-                    <div class="bg-gray-100 p-4 text-left">
-                    <p class="text-lg font-bold pt-2">₱ 2499.00</p>
-                    <h3 class="text-gray-600 text-sm h-12">Lenovo Lecoo HT403 USB 7.1 Surround Stereo Wired Gaming Headset (Black)</h3>
-                </div>
-            </a>
-</div>
-    </section>
-
-        <div class="w-full h-screen flex justify-center items-center mt-[-200px]">
-            <button class="px-6 py-3 bg-[#FBFF10] text-black rounded-md shadow-sm font-poppins hover:text-white hover:bg-blue-600 transition-all duration-700">
-                    <a href="../Products/products.php?category=Mouse" class="no-underline">View all products</a>
-            </button>
-        </div>
 
     <?php include '../Template/footer.php'; ?>
 </body>

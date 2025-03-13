@@ -1,24 +1,17 @@
 <?php 
-
 include '../../Backend/session_start.php';
 include '../../Backend/auth_check.php';
+include '../../dbconnection/dbconnect.php';
 include '../Template/header.php';
 
-$user_id = $_SESSION['user_id'];
-$result = $conn->query("SELECT * FROM cart WHERE user_id = $user_id");
-
-
-while ($row = $result->fetch_assoc()) {
-    echo "<div>
-            <img src='{$row['img']}' width='100'>
-            <p>{$row['product_name']}</p>
-            <p>₱{$row['price']} x {$row['quantity']}</p>
-          </div>";
-      
-}
-
+$query = "SELECT * FROM cart WHERE user_id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $_SESSION['user_id']);
+$stmt->execute();
+$result = $stmt->get_result();
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +21,7 @@ while ($row = $result->fetch_assoc()) {
     <title>Your Cart</title>
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
-    <script src="cart.js" defer></script>
-      
-   
-</script>
+    <script src="../JS/cart.js" defer></script>
 </head> 
 <body class="bg-gray-200">
     <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg mt-20 mb-20">
@@ -46,7 +36,21 @@ while ($row = $result->fetch_assoc()) {
                         <th class="p-4">Action</th>
                     </tr>
                 </thead>
-                <tbody id="cartItems"></tbody>
+                <tbody>
+                    <?php while ($row = $result->fetch_assoc()) { ?>
+                        <tr class="border-b">
+                            <td class="p-4 flex items-center">
+                                <img src="<?php echo $row['img']; ?>" width="100">
+                                <p class="ml-4"><?php echo $row['product_name']; ?></p>
+                            </td>
+                            <td class="p-4"><?php echo $row['quantity']; ?></td>
+                            <td class="p-4">₱<?php echo number_format($row['price'] * $row['quantity'], 2); ?></td>
+                            <td class="p-4">
+                                <button onclick="removeFromCart(<?php echo $row['id']; ?>)" class="px-4 py-2 bg-red-500 text-white rounded">Remove</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
             <button onclick="clearCart()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded">Clear Cart</button>
         </div>
@@ -57,4 +61,5 @@ while ($row = $result->fetch_assoc()) {
     </div>
 </body>
 </html>
+
 <?php include '../Template/footer.php'; ?>
