@@ -22,14 +22,14 @@ include '../../Backend/session_start.php';
                     <h1 class="text-6xl font-bold text-left font-poppins">HyperX Gaming Headset</h1>
                     <div class="relative top-10 flex space-x-4">
                     <a href="../Products/products.php?category=Mouse"class="inline-block">
-                        <button class="flex items-center bg-[#FBFF10] font-semibold text-black px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
+                        <button class="flex items-center bg-[#FBFF10] font-semibold text-black px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out cursor-pointer">
                             <img src="../../Resources/Images/Icons/Cart.png" alt="Shop Now" class="w-6 h-6 mr-2">
                             <span>Shop Now</span>
                         </button>
                     </a>
 
 
-                        <button class="flex items-center font-semibold bg-white text-black px-6 py-3 rounded-2xl hover:bg-gray-300 transition-all duration-700 ease-in-out">
+                        <button class="flex items-center font-semibold bg-white text-black px-6 py-3 rounded-2xl hover:bg-gray-300 transition-all duration-700 ease-in-out cursor-pointer">
                             <span>100+ Reviews</span>
                         </button>
                     </div>
@@ -103,7 +103,7 @@ include '../../Backend/session_start.php';
                     </div>
                 </div>
                 <a href="../Products/products.php?category=Laptops" class="inline-block">
-                    <button class="bg-[#FBFF10] font-poppins text-black text-sm px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out">
+                    <button class="bg-[#FBFF10] font-poppins text-black text-sm px-6 py-3 rounded-lg hover:text-white hover:bg-blue-600 transition-all duration-700 ease-in-out cursor-pointer">
                         Check it out!
                     </button>
                 </a>
@@ -113,8 +113,6 @@ include '../../Backend/session_start.php';
             </div>
         </section>
     </div>
-<<<<<<< HEAD
-=======
             <!--Explore sect -->
         <section class="w-full mt-40 px-8 lg:px-20">
             <h2 class="text-2xl font-semibold mb-12">Explore our Products</h2>
@@ -171,7 +169,6 @@ include '../../Backend/session_start.php';
                     <a href="../Products/products.php?category=Mouse" class="no-underline">View all products</a>
             </button>
         </div>
->>>>>>> 74e5922f5ba8903a39755a188e9c9e54e216900e
 
     <?php include '../Template/footer.php'; ?>
 </body>

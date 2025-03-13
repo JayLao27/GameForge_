@@ -86,15 +86,15 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <!-- Edit Profile Modal -->
-    <div id="editProfileContainer" class="hidden fixed inset-0 bg-black bg-opacity-20 flex justify-center items-center">
+    <div id="editProfileContainer" class="fixed inset-0 backdrop-blur-sm flex justify-center items-center hidden">
 
-        <div class="bg-white p-6 rounded-lg shadow-lg relative w-160">
-            <!-- Close Button -->
-            <button onclick="closeEditProfile()" class="absolute top-2 right-2 bg-gray-300 px-3 py-1 rounded-full">X</button>
+    <div class="bg-white border-2 p-6 rounded-lg shadow-md relative w-160">
+        <!-- Close Button -->
+        <button onclick="closeEditProfile()" class="absolute top-2 right-2 bg-gray-300 px-3 py-1 rounded-full hover:text-lg">X</button>
 
-            <?php include 'editprofile.php'; ?>
-        </div>
+        <?php include 'editprofile.php'; ?>
     </div>
+</div>
 
     <?php include '../Template/footer.php'; ?>
 

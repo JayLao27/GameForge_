@@ -18,7 +18,7 @@ include '../../dbconnection/dbconnect.php';
 <body>
 <div class="w-full h-15 bg-[#374AF8]"></div>
 
-<header class="w-full h-19 mt-8 bg-white shadow-sm">
+<header class="w-full h-19 bg-white shadow-sm">
     <div class="max-w-[1500px] mx-auto flex items-center justify-between px-2 py-4 gap-x-30">
         
         <a href="../../src/Main_Pages/home.php" class="flex items-end px-4">
