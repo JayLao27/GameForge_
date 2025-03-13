@@ -86,7 +86,8 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <!-- Edit Profile Modal -->
-    <div id="editProfileContainer" class="hidden fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
+    <div id="editProfileContainer" class="hidden fixed inset-0 bg-black bg-opacity-20 flex justify-center items-center">
+
         <div class="bg-white p-6 rounded-lg shadow-lg relative w-160">
             <!-- Close Button -->
             <button onclick="closeEditProfile()" class="absolute top-2 right-2 bg-gray-300 px-3 py-1 rounded-full">X</button>

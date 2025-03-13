@@ -17,7 +17,7 @@ $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 <body class="bg-[#E6E6E6] min-h-screen">
     <div class="flex min-h-screen">
         <aside class="w-1/6 p-7">
-        <div id="cartMessage" class="hidden bg-green-500 text-white px-4 py-2 rounded shadow-lg fixed top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div id="cartMessage" class="hidden bg-green-500 text-black px-4 py-2 rounded shadow-lg fixed top-40 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
     Item added to cart!
 </div>
 
