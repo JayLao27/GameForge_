@@ -1,0 +1,34 @@
+INSERT INTO products (name, price, image_url) VALUES
+-- Laptops
+('ACER NITRO 5 AN515-57-584E GAMING LAPTOP (SHALE BLACK)', 35999, '../../Resources/Images/Products/Laptop/ACER_NITRO_5_AN515-57-584E_GAMING_LAPTOP__SHALE_BLACK_.png'),
+('Acer Predator Helios 300 PH315-55-76D8', 39999, '../../Resources/Images/Products/Laptop/Acer_Predator_Helios_300_PH315-55-76D8_165HZ_Gaming_Laptop__Abyssal_Black_.png'),
+('Asus ROG Strix G614JV-N4369W', 45999, '../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png'),
+('Asus TUF Gaming F15 FX507VV-HQ275W', 54499, '../../Resources/Images/Products/Laptop/Asus_TUF_Gaming_F15_FX507VV-HQ275W_Gaming_Laptop-.png'),
+('Gigabyte G5 KF5-H3PH383SH', 54799, '../../Resources/Images/Products/Laptop/Gigabyte_G5_KF5-H3PH383SH_Gaming_Laptop_.png'),
+('MSI Katana A15 AI B8VE-601PH', 65299, '../../Resources/Images/Products/Laptop/MSI_Katana_A15_AI_B8VE-601PH_Gaming_Laptop__Black_.png'),
+('MSI Thin 15 B13UCX-2058PH', 73999, '../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png'),
+
+-- Mouse
+('Motospeed V90 Gaming Mouse Black', 2999, '../../Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png'),
+('Motospeed V400 Gaming Mouse Black', 1999, '../../Resources/Images/Products/Mouse/Motospeed V400 Gaming Mouse Black.png'),
+('Motospeed Darmoshark N1 Gaming Mouse', 2499, '../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png'),
+('Logitech M170 Wireless Mouse Black', 999, '../../Resources/Images/Products/Mouse/Logitech M170 Wireless Mouse Black.png'),
+('Logitech M171 Wireless Mouse Gray', 899, '../../Resources/Images/Products/Mouse/ogitech M171 Wireless Mouse Gray.png'),
+('Prolink PMC1007 Optical Mouse', 799, '../../Resources/Images/Products/Mouse/Prolink PMC1007 Optical Mouse Wired Champagne.png'),
+('Logitech M221 Silent Wireless Mouse', 599, '../../Resources/Images/Products/Mouse/Logitech M221 Silent Wireless Mouse Blue.png'),
+('Prolink PMC2002 Optical Mouse', 599, '../../Resources/Images/Products/Mouse/Prolink PMC2002 Optical Mouse Wired.png'),
+('Logitech B100 Optical USB Mouse', 299, '../../Resources/Images/Products/Mouse/Logitech B100 Optical USB Mouse.png'),
+
+-- Headsets
+('Corsair HS55 Stereo Wired Gaming Headset (White)', 2999, '../../Resources/Images/Products/Headset/Corsair_HS55_Stereo_Wired_Gaming_Headset__White_.png'),
+('Corsair HS80 MAX Premium Wireless RGB Gaming Headset (White)', 5999, '../../Resources/Images/Products/Headset/Corsair_HS80_MAX_Premium_Wireless_RGB_Gaming_Headset__White_.png'),
+('Lenovo Lecoo HT403 USB 7.1 Surround Stereo Wired Gaming Headset (Black)', 2499, '../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png'),
+('Onikuma K5 PRO Gaming Headset', 1799, '../../Resources/Images/Products/Headset/Onikuma_K5_PRO_Gaming_Headset-removebg-preview.png'),
+('Onikuma K8 Gaming Headset with Mic & Noise Cancelling (Camouflage Green)', 1999, '../../Resources/Images/Products/Headset/Onikuma_K8_Gaming_Headset_With_Mic_And_Noise_Cancelling__Camouflage_Green_-removebg-preview.png'),
+('Onikuma X10 Ox Horn RGB Wired Professional Gaming Headset (Black/Red)', 2399, '../../Resources/Images/Products/Headset/Onikuma_X10_Ox_Horn_RGB_Wired_Professional_Gaming_Headset_with_Noise_Cancellation_Microphone__Black_Red_-removebg-preview.png'),
+('PS4 Gaming Headset Air High-Grade White (PS4-073)', 1899, '../../Resources/Images/Products/Headset/PS4_Gaming_Headset_Air_High_Grade_White__PS4-073_-removebg-preview.png'),
+('PS4 Gear Gaming Headset 4 Owl Gear (PS4-003)', 2099, '../../Resources/Images/Products/Headset/PS4_Gear_Gaming_Headset_4_Owl_Gear__PS4-003_-removebg-preview.png'),
+('PS5 Pulse Elite Wireless Headset', 6999, '../../Resources/Images/Products/Headset/PS5_Pulse_Elite_Wireless_Headset_For_PS5-removebg-preview.png'),
+('Redragon Chiron RGB Wired Gaming Headset (H380-RGB)', 2599, '../../Resources/Images/Products/Headset/Redragon_Chiron_RGB_Wired_Gaming_Headset__H380-RGB_-removebg-preview.png'),
+('Redragon H878 Skuld Pro Lightweight Wireless Gaming Headset (Black/Blue/White)', 3499, '../../Resources/Images/Products/Headset/Redragon_H878_Skuld_Pro_Lightweight_Wireless_Gaming_Headset__Black___Blue__White_-removebg-preview.png'),
+('Redragon Hylas Gaming Headset (H260RGB)', 2299, '../../Resources/Images/Products/Headset/Redragon_Hylas_Gaming_Headset__H260RGB_-removebg-preview.png');
