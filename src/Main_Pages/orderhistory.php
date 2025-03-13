@@ -1,7 +1,7 @@
 <?php 
 include '../Template/header.php';
 include '../../Backend/session_start.php';
-include '../../Backend/Cart/check_order.php';
+include '../../Backend/Cart/fetch_order.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ include '../../Backend/Cart/check_order.php';
             </nav>  
         </aside>
 
-        <!-- main cont (tables)-->
+        <!-- main content (tables) -->
         <main class="flex-1 p-10">
             <div class="max-w-5xl mx-[100px] bg-white p-12 rounded-lg shadow">
                 <div class="flex-col space-y-4 ml-5">
@@ -36,14 +36,19 @@ include '../../Backend/Cart/check_order.php';
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="border-b border-gray-300">
-                                <th class="p-3 text-gray-700">Items Ordered</th>
-                                <th class="p-3 text-gray-700">Quantity</th>
+                                <th class="p-3 text-gray-700">Oder ID</th>
                                 <th class="p-3 text-gray-700">Total Price</th>
                                 <th class="p-3 text-gray-700">Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- for backend purposes -->
+                            <?php while ($row = $result->fetch_assoc()) : ?>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-3"><?= htmlspecialchars($row['id']) ?></td>
+                                    <td class="p-3">$<?= htmlspecialchars(number_format($row['total'], 2)) ?></td>
+                                    <td class="p-3"><?= htmlspecialchars(date('F j, Y', strtotime($row['created_at']))) ?></td>
+                                </tr>
+                            <?php endwhile; ?>
                         </tbody>
                     </table>
                 </div>
