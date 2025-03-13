@@ -1,3 +1,4 @@
+// Product Data
 let products = {
     "Laptops": [
         { name: "ACER NITRO 5 AN515-57-584E GAMING LAPTOP (SHALE BLACK)", price: 35999, img: "../../Resources/Images/Products/Laptop/ACER_NITRO_5_AN515-57-584E_GAMING_LAPTOP__SHALE_BLACK_.png" },
@@ -19,7 +20,7 @@ let products = {
         { name: "Prolink PMC2002 Optical Mouse", price: 599, img: "../../Resources/Images/Products/Mouse/Prolink PMC2002 Optical Mouse Wired.png" },
         { name: "Logitech B100 Optical USB Mouse", price: 299, img: "../../Resources/Images/Products/Mouse/Logitech B100 Optical USB Mouse.png" }
     ],
- "Headset": [
+  "Headset": [
     { name: "Corsair HS55 Stereo Wired Gaming Headset (White)", price: 2999, img: "../../Resources/Images/Products/Headset/Corsair_HS55_Stereo_Wired_Gaming_Headset__White_.png" },
     { name: "Corsair HS80 MAX Premium Wireless RGB Gaming Headset (White)", price: 5999, img: "../../Resources/Images/Products/Headset/Corsair_HS80_MAX_Premium_Wireless_RGB_Gaming_Headset__White_.png" },
     { name: "Lenovo Lecoo HT403 USB 7.1 Surround Stereo Wired Gaming Headset (Black)", price: 2499, img: "../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" },
@@ -34,89 +35,110 @@ let products = {
     { name: "Redragon Hylas Gaming Headset (H260RGB)", price: 2299, img: "../../Resources/Images/Products/Headset/Redragon_Hylas_Gaming_Headset__H260RGB_-removebg-preview.png" }
 ]
 };
-let selectedCategory = "Mouse"; 
-let isHighToLow = true;
 
-<<<<<<< HEAD:src/JS/products.js
+let isHighToLow = true;
+let selectedCategory = "";
+
+// Event Listener for DOM Content Loaded
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
-    
+
     if (searchInput) {
         searchInput.addEventListener("input", function () {
-            renderProducts(selectedCategory);
+            renderProducts(selectedCategory, searchInput.value);
         });
-=======
-function renderProducts(category) {
-    selectedCategory = category; 
-    const productGrid = document.getElementById("productGrid");
-    if (!productGrid) return; 
-
-    productGrid.innerHTML = ""; 
-
-    if (products[category]) {
-        products[category].forEach(product => {
-            productGrid.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer">
-                    <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
-                    <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
-                    <p class="text-m font-bold text-gray-600">${product.name}</p>
-                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 hover:bg-[#FBFF10] transition-all duration-400 ease-in-out rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
-                </div>
-            `;
-        }); 
-    } else {
-        productGrid.innerHTML = `<p class="text-center text-gray-500">No products available in this category.</p>`;
->>>>>>> 74e5922f5ba8903a39755a188e9c9e54e216900e:src/Products/products.js
     }
+
+    renderProducts(selectedCategory);
 });
 
+// Function to Render Products
+function renderProducts(category = "", filterText = "") {
+    selectedCategory = category;
+    const productGrid = document.getElementById("productGrid");
+    if (!productGrid) {
+        console.error("Product grid element not found!");
+        return;
+    }
 
+    productGrid.innerHTML = ""; // Clear previous content
+
+    Object.keys(products).forEach(cat => {
+        if (category === "" || cat === category) {
+            let filteredProducts = products[cat].filter(product =>
+                product.name.toLowerCase().includes(filterText.toLowerCase().trim())
+            );
+
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.className = "bg-white p-4 rounded-lg shadow-md cursor-pointer";
+                    productCard.innerHTML = `
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
+                        <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
+                        <p class="text-m font-bold text-gray-600">${product.name}</p>
+                        <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                    `;
+                    productGrid.appendChild(productCard);
+                });
+            }
+        }
+    });
+
+    if (productGrid.innerHTML === "") {
+        productGrid.innerHTML = `<p class="text-center text-gray-500">No products available in this category.</p>`;
+    }
+}
+
+// Function to Redirect to Product Page
 function redirectToProduct(productName) {
     window.location.href = `productpage.php?name=${encodeURIComponent(productName)}`;
 }
 
-function togglePriceSort() {
-    isHighToLow = !isHighToLow;
-    if (products[selectedCategory]) {
-        products[selectedCategory].sort((a, b) => isHighToLow ? b.price - a.price : a.price - b.price);
-        document.getElementById("priceOrder").textContent = isHighToLow ? "High to Low" : "Low to High";
-        renderProducts(selectedCategory);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedCategory = urlParams.get("category") || "Laptops"; 
-
-    if (typeof renderProducts === "function") {
-        renderProducts(selectedCategory);
-    } else {
-        console.error("renderProducts function not found!");
-    }
-
-    document.getElementById("priceFilter").addEventListener("click", togglePriceSort);
-});
-
+// Function to Show Cart Message
 function showCartMessage(productName) {
+    console.log("showCartMessage called for:", productName);
     const cartMessage = document.getElementById("cartMessage");
-    cartMessage.textContent = `${productName} added to cart!`;
-    cartMessage.classList.remove("hidden");
-    cartMessage.classList.add("block");
+    
+    if (!cartMessage) {
+        console.error("cartMessage element not found!");
+        return;
+    }
 
-   
+    cartMessage.textContent = `${productName} added to cart!`;
+    cartMessage.style.display = "block"; 
+    cartMessage.classList.remove("hidden");
+
     setTimeout(() => {
+        console.log("Hiding cart message");
+        cartMessage.style.display = "none"; 
         cartMessage.classList.add("hidden");
     }, 3000);
 }
 
+
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push({
-        name: product.name,
-        price: product.price,
-        img: product.img
-    });
+
+    // Check if the product already exists in the cart
+    let existingProduct = cart.find(item => item.name === product.name);
+    
+    if (existingProduct) {
+        // If it exists, increase the quantity
+        existingProduct.quantity += 1;
+    } else {
+        // Ensure quantity is at least 1 if not provided
+        product.quantity = product.quantity || 1;
+        cart.push(product);
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart(); // Reload cart dynamically
+
+    // Show cart message
     showCartMessage(product.name);
+
+
 }
+
 

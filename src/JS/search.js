@@ -1,49 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
-    
-    if (searchInput) {
-        searchInput.addEventListener("input", function () {
-            renderProducts(selectedCategory);
-        });
+    const searchButton = document.getElementById("searchButton");
+    const searchResults = document.getElementById("searchResults");
+
+    function filterProducts(query) {
+        query = query.toLowerCase().trim();
+        searchResults.innerHTML = "";
+        searchResults.classList.add("hidden");
+
+        if (query.length === 0) return;
+
+        let matchedProducts = [];
+
+        for (const category in products) {
+            products[category].forEach(product => {
+                if (product.name.toLowerCase().startsWith(query)) { // Match only first letter
+                    matchedProducts.push(product);
+                }
+            });
+        }
+
+        if (matchedProducts.length > 0) {
+            searchResults.classList.remove("hidden");
+
+            matchedProducts.slice(0, 7).forEach(product => { // Limit to 7 results
+                const resultItem = document.createElement("div");
+                resultItem.className = "p-2 hover:bg-gray-100 cursor-pointer flex items-center";
+                resultItem.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}" class="h-10 w-10 mr-2">
+                    <span class="text-sm">${product.name}</span>
+                `;
+
+                resultItem.addEventListener("click", function () {
+                    window.location.href = `productpage.php?name=${encodeURIComponent(product.name)}`;
+                });
+
+                searchResults.appendChild(resultItem);
+            });
+
+            if (matchedProducts.length > 7) {
+                searchResults.style.maxHeight = "200px"; // Set a height for scrolling
+                searchResults.style.overflowY = "auto"; // Enable vertical scroll
+            } else {
+                searchResults.style.maxHeight = "unset"; // Reset if less than 7
+                searchResults.style.overflowY = "hidden";
+            }
+        }
     }
+
+    searchInput.addEventListener("input", function () {
+        filterProducts(this.value);
+    });
+
+    searchButton.addEventListener("click", function () {
+        filterProducts(searchInput.value);
+    });
+
+        searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevents form submission if inside a form
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                window.location.href = `products.php?search=${encodeURIComponent(query)}`;
+            }
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!searchResults.contains(event.target) && event.target !== searchInput) {
+            searchResults.classList.add("hidden");
+        }
+    });
 });
-
-function renderProducts(category) {
-    selectedCategory = category; 
-    const productGrid = document.getElementById("productGrid");
-    const searchInput = document.getElementById("searchInput");
-
-    if (!productGrid) return;
-
-    productGrid.innerHTML = ""; 
-
-    let filteredProducts = products[category] || [];
-
-    if (searchInput && searchInput.value.trim() !== "") {
-        const searchQuery = searchInput.value.toLowerCase();
-        filteredProducts = filteredProducts.filter(product =>
-            product.name.toLowerCase().includes(searchQuery)
-        );
-    }
-
-    if (filteredProducts.length > 0) {
-        filteredProducts.forEach(product => {
-            productGrid.innerHTML += `
-                <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer">
-                    <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
-                    <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
-                    <p class="text-m font-bold text-gray-600">${highlightMatch(product.name, searchInput.value)}</p>
-                    <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
-                </div>
-            `;
-        });
-    } else {
-        productGrid.innerHTML = `<p class="text-center text-gray-500">No products found.</p>`;
-    }
-}
-
-function highlightMatch(text, query) {
-    if (!query) return text;
-    const regex = new RegExp(`(${query})`, "gi");
-    return text.replace(regex, `<span class="bg-yellow-200">$1</span>`);
-}

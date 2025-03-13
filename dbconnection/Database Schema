@@ -40,37 +40,31 @@ CREATE TABLE products (
 -- Cart Table (Added Indexes)
 CREATE TABLE cart (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_id INT NOT NULL,
-    product_name VARCHAR(255) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    quantity INT NOT NULL DEFAULT 1,
-    img VARCHAR(255) NOT NULL
+    user_id INT,
+    product_id INT,
+    product_name VARCHAR(255),
+    img VARCHAR(255),
+    price DECIMAL(10,2),
+    quantity INT
 );
-
-
 
 
 -- Orders Table
 CREATE TABLE orders (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NULL,  -- Allow guest checkout
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total DECIMAL(10,2) NOT NULL CHECK (total >= 0),  
-    status ENUM('pending', 'completed', 'canceled') DEFAULT 'pending',
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
-    INDEX(user_id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    total DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Order Items Table 
 CREATE TABLE order_items (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     product_id INT,
-    quantity INT NOT NULL CHECK (quantity > 0),
-    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
-    INDEX(order_id),
-    INDEX(product_id)
+    quantity INT,
+    price DECIMAL(10,2),
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
 );
+
