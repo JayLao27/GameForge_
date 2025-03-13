@@ -1,6 +1,6 @@
 <?php 
 include '../Template/header.php';
-include 'C:/Users/Cjay/OneDrive/Desktop/Gameforge/GameForge--/Backend/session_start.php';
+include '../../Backend/session_start.php';
 include '../../dbconnection/dbconnect.php';
 include '../../Backend/Components/fetch.php'; // Include fetch.php
 
