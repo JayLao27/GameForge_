@@ -16,14 +16,8 @@ include '../Template/header.php';
 
 <body class="bg-[#E6E6E6]">
 
-    <section class="flex flex-col flex-wrap mx-auto mt-32 w-full h-full max-w-md max-h-[469px] items-start justify-center border-[1.5px] border-black rounded-lg bg-white">
-        <div class="flex justify-start items-center flex-row w-full max-w-lg px-8">
-            <h1 class="text-2xl font-semibold mt-4">Log in to your account</h1>
-        </div>
-
-        <!-- Display Error Message -->
         <?php if (isset($_SESSION['error_message'])): ?>
-            <div id="error-message" class="bg-red-600 text-white opacity-75 px-4 py-2 rounded-lg shadow-md w-full text-center mt-50">
+            <div id="error-message" class="bg-red-600 text-white opacity-75 absolute px-4 py-2 rounded-lg shadow-md w-full text-center mt-20">
                 <?php echo htmlspecialchars($_SESSION['error_message']); ?>
             </div>
             <script>
@@ -33,6 +27,12 @@ include '../Template/header.php';
             unset($_SESSION['error_message']);
         endif;
         ?>
+    <section class="flex flex-col flex-wrap mx-auto mt-32 w-full h-full max-w-md max-h-[469px] items-start justify-center border-[1.5px] border-black rounded-lg bg-white">
+        <div class="flex justify-start items-center flex-row w-full max-w-lg px-8">
+            <h1 class="text-2xl font-semibold mt-4">Log in to your account</h1>
+        </div>
+
+        <!-- Display Error Message -->
 
         <div class="flex items-start justify-start w-full max-w-lg px-8 py-2 pb-5">
             <form method="POST" action="../../Backend/authentication.php" class="flex flex-wrap flex-col justify-around items-start h-72 w-full max-w-sm box-border">

@@ -1,7 +1,9 @@
 <?php
+header('Content-Type: application/json'); // Ensure JSON response
 include '../session_start.php';
 include '../auth_check.php';
 include '../../dbconnection/dbconnect.php';
+
 
 $user_id = $_SESSION['user_id'];
 $cart = json_decode(file_get_contents("php://input"), true)['cart'];
@@ -26,21 +28,43 @@ if (!$wallet || $wallet['balance'] < $total) {
     exit;
 }
 
-// Deduct balance
-$conn->query("UPDATE wallet SET balance = balance - $total WHERE user_id = $user_id");
+// Start transaction
+$conn->begin_transaction();
 
-// Insert order
-$conn->query("INSERT INTO orders (user_id, total) VALUES ($user_id, $total)");
-$order_id = $conn->insert_id;
+try {
+    // Deduct balance first
+    $update_wallet = $conn->query("UPDATE wallet SET balance = balance - $total WHERE user_id = $user_id");
+    
+    // Ensure balance was successfully deducted
+    if (!$update_wallet) {
+        throw new Exception("Failed to deduct balance.");
+    }
 
-// Insert order items
-foreach ($cart as $item) {
-    $product_id = intval($item['product_id']);
-    $quantity = intval($item['quantity']);
-    $price = floatval($item['price']);
-    $conn->query("INSERT INTO order_items (order_id, product_id, quantity, price) 
-                  VALUES ($order_id, $product_id, $quantity, $price)");
+    // Insert order only if wallet deduction was successful
+    $conn->query("INSERT INTO orders (user_id, total) VALUES ($user_id, $total)");
+    $order_id = $conn->insert_id;
+
+    // Insert order items
+    foreach ($cart as $item) {
+        $product_id = intval($item['product_id']);
+        $quantity = intval($item['quantity']);
+        $price = floatval($item['price']);
+        $conn->query("INSERT INTO order_items (order_id, product_id, quantity, price) 
+                      VALUES ($order_id, $product_id, $quantity, $price)");
+    }
+
+    // Clear the cart in the database
+    $conn->query("DELETE FROM cart WHERE user_id = $user_id");
+
+    // Commit transaction
+    $conn->commit();
+
+    echo json_encode(["success" => true, "message" => "Checkout successful!"]);
+    exit;
+
+} catch (Exception $e) {
+    // Rollback transaction if anything fails
+    $conn->rollback();
+    echo json_encode(["success" => false, "message" => "Checkout failed: " . $e->getMessage()]);
+    exit;
 }
-
-echo json_encode(["success" => true, "message" => "Checkout successful!"]);
-?>

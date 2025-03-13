@@ -2,7 +2,7 @@
 include '../Template/header.php';
 include '../../Backend/session_start.php';
 include '../../dbconnection/dbconnect.php';
-include '../../Backend/Components/fetch.php'; // Include fetch.php
+include '../../Backend/Components/fetch.php';
 
 $user_id = $_SESSION['user_id'] ?? 0;
 
