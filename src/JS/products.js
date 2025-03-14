@@ -144,6 +144,7 @@ function addToCart(product) {
         // Ensure quantity is at least 1 if not provided
         product.quantity = product.quantity || 1;
         cart.push(product);
+        showCartMessage(product.name);
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
