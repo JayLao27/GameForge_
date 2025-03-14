@@ -17,7 +17,7 @@ include '../Template/header.php';
 <body class="bg-[#E6E6E6]">
 
         <?php if (isset($_SESSION['error_message'])): ?>
-            <div id="error-message" class="bg-red-600 text-white opacity-75 absolute px-4 py-2 rounded-lg shadow-md w-full text-center mt-20">
+            <div id="error-message" class="bg-red-600 text-white opacity-75 absolute px-4 py-2 rounded-lg shadow-md w-full text-center">
                 <?php echo htmlspecialchars($_SESSION['error_message']); ?>
             </div>
             <script>
@@ -44,9 +44,6 @@ include '../Template/header.php';
                 <label for="password" class="font-semibold text-lg opacity-75">Password <span class="text-red-700 pl-1">*</span></label>
                 <div class="relative w-full flex items-center">
                     <input type="password" name="password" id="password" required class="border border-black rounded-md bg-gray-100 px-2 py-2 w-full pr-10">
-                    <button type="button" id="togglepassword" class="absolute right-4 top-3 bg-transparent border-none cursor-pointer">
-                        <img src="../../Resources/Images/Icons/password_icon.png" alt="Show Password" class="w-6 h-4">
-                    </button>
                 </div>
                 
                 <div class="flex justify-center w-full">

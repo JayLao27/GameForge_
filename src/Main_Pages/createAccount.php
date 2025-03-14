@@ -43,9 +43,6 @@ include '../../Backend/registration.php';
             <label class="font-semibold text-lg opacity-75 py-2" for="password">Password <span class="text-red-500 pl-1">*</span></label>
             <div class="relative flex items-center w-full max-w-full">
                 <input class="w-full pr-10 box-border border border-black rounded-md bg-gray-100 py-2 px-1" type="password" name="password" id="password" required>
-                <button type="button" id="togglepassword" class="absolute right-4 top-3 bg-transparent border-none cursor-pointer">
-                    <img class="w-6 h-4" src="/GameForge_/Resources/Images/Icons/password_icon.png" alt="Show Password">
-                </button>
             </div>
             <div class="flex justify-center w-full">
                 <button class="text-white text-lg font-medium border-none rounded-full bg-blue-600 w-full max-w-[355px] mt-5 py-2 hover:bg-blue-700 transition-all duration-700 ease-in-out" name="signUp" type="submit">Sign Up</button>

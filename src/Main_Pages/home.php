@@ -119,7 +119,7 @@ include '../../Backend/session_start.php';
 
         <div class="grid ml-25 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=MSI%20Thin%2015%20B13UCX-2058PH">
+                <a href="../Products/products.php?category=Laptops">
                 <div class="bg-[#FFF7F7] flex justify-center p-6 pb-12">
                     <img src="../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" alt="MSI Thin 15" class="h-40">
                 </div>
@@ -130,7 +130,7 @@ include '../../Backend/session_start.php';
             </div>
 
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=Asus%20ROG%20Strix%20G614JV-N4369W">
+                <a href="../Products/products.php?category=Laptops">
                 <div class="bg-pink-50 flex justify-center p-6">
                     <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-44">
                 </div>
@@ -141,7 +141,7 @@ include '../../Backend/session_start.php';
             </div>
 
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
-                <a href="../Products/productpage.php?name=Motospeed%20Darmoshark%20N1%20Gaming%20Mouse">
+                <a href="../Products/products.php?category=Mouse">
                 <div class="bg-pink-50 flex justify-center p-6">
                     <img src="../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
                 </div>
@@ -152,7 +152,7 @@ include '../../Backend/session_start.php';
             </div>
 
               <div class="border rounded-lg shadow-md overflow-hidden w-75">
-                  <a href="../Products/productpage.php?name=Lenovo%20Lecoo%20HT403%20USB%207.1%20Surround%20Stereo%20Wired%20Gaming%20Headset%20(Black)">
+                  <a href="../Products/products.php?category=Headset">
                   <div class="bg-pink-50 flex justify-center p-6">
               <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" class="h-40 mx-auto mr-10">
                 </div>

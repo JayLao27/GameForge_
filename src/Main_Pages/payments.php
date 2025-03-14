@@ -35,7 +35,7 @@ $balance = $_SESSION['balance'] ?? 0.00; // Get the balance from session
         </aside>
         
         <!-- Main Content -->
-        <main class="flex-1 p-10">
+        <main class="flex- p-10">
             <div class="max-w-3xl mx-[100px] bg-white p-12 rounded-lg shadow">
                 <div class="bg-white p-10 rounded-lg shadow-lg w-[400px] text-center border border-gray-300">
                     <h1 class="text-2xl font-bold mb-6">Wallet Balance</h1>

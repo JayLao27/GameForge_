@@ -24,7 +24,6 @@ $cart_json = json_encode($cart_items);
     <title>Your Cart</title>
     <link href="../CSS/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="../JS/cart.js" defer></script>
     </head> 
 <body class="bg-gray-200" data-cart='<?php echo $cart_json; ?>'>
