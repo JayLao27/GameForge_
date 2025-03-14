@@ -109,7 +109,7 @@ include '../../Backend/session_start.php';
                 </a>
             </div>
             <div class="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-                <img src="/Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
+                <img src="../../Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-[800px]">
             </div>
         </section>
     </div>
