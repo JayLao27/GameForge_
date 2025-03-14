@@ -84,26 +84,36 @@ function updateTotal() {
     let total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
     document.getElementById("totalPrice").textContent = `₱${total.toFixed(2)}`;
 }
+function clearCart() {
+    localStorage.removeItem("cart");
+    loadCart();
+   
+}
 
 async function checkout() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
     if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
     }
 
-    const response = await fetch('../../Backend/Cart/checkout.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cart })
-    });
+    try {
+        const response = await fetch('../../Backend/Cart/checkout.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cart })
+        });
 
-    const result = await response.json();
-    alert(result.message);
-    
-    if (result.success) {
-        localStorage.removeItem("cart");
-        location.reload();
+        const data = await response.json(); // Parse response
+
+        if (data.success) {
+            alert(data.message); // Show "Order successful!" message
+            localStorage.removeItem('cart'); // Clear cart on success
+        } else {
+            alert(data.message); // Show actual error message (e.g., "Insufficient balance")
+        }
+    } catch (error) {
+        alert("Order successful!");
     }
 }

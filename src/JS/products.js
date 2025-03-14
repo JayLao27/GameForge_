@@ -96,8 +96,19 @@ function redirectToProduct(productName) {
 }
 
 // Function to Show Cart Message
+// Store product quantities in an object
+let cartQuantities = {};
+
 function showCartMessage(productName) {
     console.log("showCartMessage called for:", productName);
+
+    // Increment quantity for the clicked product
+    if (!cartQuantities[productName]) {
+        cartQuantities[productName] = 1;
+    } else {
+        cartQuantities[productName]++;
+    }
+
     const cartMessage = document.getElementById("cartMessage");
     
     if (!cartMessage) {
@@ -105,7 +116,8 @@ function showCartMessage(productName) {
         return;
     }
 
-    cartMessage.textContent = `${productName} added to cart!`;
+    // Update message with quantity count
+    cartMessage.textContent = `${productName} added to cart! (${cartQuantities[productName]})`;
     cartMessage.style.display = "block"; 
     cartMessage.classList.remove("hidden");
 
@@ -117,6 +129,7 @@ function showCartMessage(productName) {
 }
 
 
+
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -126,6 +139,7 @@ function addToCart(product) {
     if (existingProduct) {
         // If it exists, increase the quantity
         existingProduct.quantity += 1;
+        showCartMessage(product.name);
     } else {
         // Ensure quantity is at least 1 if not provided
         product.quantity = product.quantity || 1;
@@ -136,7 +150,6 @@ function addToCart(product) {
     loadCart(); // Reload cart dynamically
 
     // Show cart message
-    showCartMessage(product.name);
 
 
 }

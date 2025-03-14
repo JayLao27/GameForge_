@@ -4,7 +4,6 @@ include '../session_start.php';
 include '../auth_check.php';
 include '../../dbconnection/dbconnect.php';
 
-
 $user_id = $_SESSION['user_id'];
 $cart = json_decode(file_get_contents("php://input"), true)['cart'];
 
@@ -59,7 +58,8 @@ try {
     // Commit transaction
     $conn->commit();
 
-    echo json_encode(["success" => true, "message" => "Checkout successful!"]);
+    // Success message updated
+    echo json_encode(["success" => true, "message" => "Order successful!"]);
     exit;
 
 } catch (Exception $e) {
