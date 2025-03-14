@@ -111,7 +111,6 @@ function clearCart() {
     loadCart(); // Reload cart display to reflect the empty cart
 }
 
-// Function to handle the checkout process
 async function checkout() {
     let cart = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart from local storage
 
@@ -131,11 +130,12 @@ async function checkout() {
 
         if (data.success) {
             alert(data.message); // Show success message
-            localStorage.removeItem('cart'); // Clear cart on successful checkout
+            clearCart(); // Clear the cart
         } else {
             alert(data.message); // Show error message if checkout fails
         }
     } catch (error) {
         alert("Order successful!"); // Default message in case of an error
+        clearCart(); // Clear the cart even if there's a network issue
     }
 }
