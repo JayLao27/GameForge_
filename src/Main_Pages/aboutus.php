@@ -13,29 +13,29 @@ include '../Template/header.php';
 </head>
 <body class="bg-[#E6E6E6] min-h-screen h-full flex flex-col items-center">
 
-    <!-- About Section -->
+    <!-- about label sect -->
     <div class="w-full max-w-7xl bg-[#134563] rounded-lg mx-auto p-10 mt-22 shadow-lg flex flex-col md:flex-row items-center md:items-start">
         
-        <!-- Left Side: Title -->
+        <!-- left title -->
         <div class="flex md:w-1/2 text-left items-center justify-center self-center">
             <h1 class="text-3xl md:text-4xl text-white">
                 <span class="font-medium font-poppins">About</span><span class="font-bold font-poppins pl-[10px]">GameForge</span>
             </h1>
         </div>
 
-        <!-- Right Side: Image -->
+        <!-- right image -->
         <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
             <img src="../../Resources/Images/aboutusimg.png" alt="Gaming Gear" 
                 class="rounded-lg shadow-md w-[300px] md:w-[350px] h-auto">
         </div>
     </div>
 
-    <!-- Description Section -->
+    <!-- desc sect-->
     <div class="flex flex-col md:flex-row items-center justify-center gap-10 mt-10 px-10 md:px-0 mb-20">
-    <!-- Left Image -->
+    <!-- left image -->
     <img src="../../Resources/Images/mouse&keyboardAbout.png" alt="Gaming Keyboard and Mouse" class="w-1/3 pr-2 max-w-xs">
 
-    <!-- Text Section -->
+    <!--  content sect-->
     <div class="w-full max-w-3xl text-black text-lg leading-loose text-center md:text-justify">
         <p class="palanquin-dark-regular">
             <span class="text-3xl font-bold">W</span>elcome to <span class="font-semibold">GameForge</span>, your ultimate destination for high-performance gaming gear! 
@@ -47,7 +47,7 @@ include '../Template/header.php';
         </p>
     </div>
 
-    <!-- Right Image -->
+    <!-- right image sect -->
     <img src="../../Resources/Images/laptopabt.png" alt="Gaming Laptop" class="w-1/3 pl-2 max-w-xs">
 </div>
 

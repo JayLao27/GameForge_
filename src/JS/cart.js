@@ -115,7 +115,7 @@ async function checkout() {
     let cart = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart from local storage
 
     if (cart.length === 0) {
-        alert("Your cart is empty."); // Show alert if cart is empty
+        displayMessage("Your cart is empty.", false); // Show alert if cart is empty
         return;
     }
 
@@ -129,13 +129,27 @@ async function checkout() {
         const data = await response.json(); // Parse response from the server
 
         if (data.success) {
-            alert(data.message); // Show success message
+            displayMessage(data.message, true); // Show success message
             clearCart(); // Clear the cart
         } else {
-            alert(data.message); // Show error message if checkout fails
+            displayMessage(data.message, false); // Show error message if checkout fails
         }
-    }catch (error) {
-            console.error("Checkout failed:", error); // Log actual error
-            alert("Checkout failed! Please try again.");
-        }
+    } catch (error) {
+        console.error("Checkout failed:", error); // Log actual error
+        displayMessage("Checkout failed! Please try again.", false);
+    }
+}
+
+// Function to display messages
+function displayMessage(message, isSuccess) {
+    const messageContainer = document.getElementById("messageContainer");
+    const messageElement = document.createElement("div");
+    messageElement.className = `absolute    px-4 py-2 rounded-lg ${isSuccess ? 'bg-green-600' : 'bg-red-600'} text-white mb-4 shadow-lg`;
+    messageElement.innerHTML = message;
+
+    messageContainer.appendChild(messageElement);
+
+    setTimeout(() => {
+        messageElement.remove();
+    }, 3000); // Remove message after 3 seconds
 }
