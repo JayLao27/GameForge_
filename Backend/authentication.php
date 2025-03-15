@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signInbtn'])) {
 
     if (empty($username) || empty($password)) {
         $_SESSION['error_message'] = "Please fill in all fields.";
-        header("Location: /Gameforge_/src/Main_Pages/home.php");
+        header("Location: ../src/Main_Pages/home.php");
         exit();
     }
 
@@ -21,18 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signInbtn'])) {
     $user = $result->fetch_assoc();
     
     if ($user && password_verify($password, $user['password'])) {
-        session_regenerate_id(true); // Prevent session fixation
+        session_regenerate_id(true); 
         $_SESSION['firstname'] = $user['firstname'];
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $username;
         $_SESSION['logged_in'] = true;
 
-        header("Location: /Gameforge_/src/Main_Pages/home.php");
+        header("Location: ../src/Main_Pages/home.php");
         exit();
     }
 
     $_SESSION['error_message'] = "❌ Invalid username or password.";
-    header("Location: /Gameforge_/src/Main_Pages/signIn.php");
+    header("Location: ../src/Main_Pages/signIn.php");
     exit();
 }
 ?>
