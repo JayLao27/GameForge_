@@ -1,18 +1,18 @@
 <?php
 header('Content-Type: application/json'); // Ensure JSON response
-include '../session_start.php';
-include '../auth_check.php';
-include '../../dbconnection/dbconnect.php';
+include '../session_start.php'; // Start session to track user authentication
+include '../auth_check.php'; // Include authentication check
+include '../../dbconnection/dbconnect.php'; // Include database connection file
 
-$user_id = $_SESSION['user_id'];
-$cart = json_decode(file_get_contents("php://input"), true)['cart'];
+$user_id = $_SESSION['user_id']; // Retrieve user ID from session
+$cart = json_decode(file_get_contents("php://input"), true)['cart']; // Decode JSON input to get cart items
 
-if (!$cart) {
+if (!$cart) { // Check if cart is empty
     echo json_encode(["success" => false, "message" => "Cart is empty."]);
     exit;
 }
 
-// Calculate total price
+// Calculate total price of items in the cart
 $total = 0;
 foreach ($cart as $item) {
     $total += $item['quantity'] * $item['price'];
@@ -22,7 +22,7 @@ foreach ($cart as $item) {
 $wallet_result = $conn->query("SELECT balance FROM wallet WHERE user_id = $user_id");
 $wallet = $wallet_result->fetch_assoc();
 
-if (!$wallet || $wallet['balance'] < $total) {
+if (!$wallet || $wallet['balance'] < $total) { // Ensure user has sufficient balance
     echo json_encode(["success" => false, "message" => "Insufficient balance."]);
     exit;
 }
@@ -41,16 +41,6 @@ try {
 
     // Insert order only if wallet deduction was successful
     $conn->query("INSERT INTO orders (user_id, total) VALUES ($user_id, $total)");
-    $order_id = $conn->insert_id;
-
-    // Insert order items
-    foreach ($cart as $item) {
-        $product_id = intval($item['product_id']);
-        $quantity = intval($item['quantity']);
-        $price = floatval($item['price']);
-        $conn->query("INSERT INTO order_items (order_id, product_id, quantity, price) 
-                      VALUES ($order_id, $product_id, $quantity, $price)");
-    }
 
     // Clear the cart in the database
     $conn->query("DELETE FROM cart WHERE user_id = $user_id");
@@ -58,7 +48,6 @@ try {
     // Commit transaction
     $conn->commit();
 
-    // Success message updated
     echo json_encode(["success" => true, "message" => "Order successful!"]);
     exit;
 
@@ -68,3 +57,4 @@ try {
     echo json_encode(["success" => false, "message" => "Checkout failed: " . $e->getMessage()]);
     exit;
 }
+?>
