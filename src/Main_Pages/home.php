@@ -50,28 +50,28 @@ include '../../Backend/session_start.php';
                     <img src="../../Resources/Images/Home/Headset.png" alt="HyperX Headset" class="w-150 h-auto">
                 </div>
             </div>
+
+
         </section>
-
-
         <div class="mt-52 bg-white">
     <div class="w-full flex flex-col items-center px-8 lg:px-20">
         <h2 class="text-5xl text-left font-semibold mb-8 mt-20">Browse by Category</h2>
         <!-- browse sect -->
         <section id="Shop" class="text-center w-2xl">
-    <div class="grid grid-cols-3 gap-0 justify-center items-center">
-        <div class="border-2 p-2 rounded-lg w-max mx-auto">
+    <div class="grid grid-cols-3  gap-0 justify-center items-center">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto shadow-lg">
             <a href="../Products/products.php?category=Laptops">
                 <img src="../../Resources/Images/Home/laptop-png-8 3.png" alt="Laptop" class="w-32 h-25 mx-auto">
                 <p class="mt-2 font-medium">Laptop</p>
             </a>
         </div>
-        <div class="border-2 p-2 rounded-lg w-max mx-auto">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto shadow-lg">
             <a href="../Products/products.php?category=Mouse">
                 <img src="../../Resources/Images/Home/Mouse 1.png" alt="Mouse" class="w-25 h-25 mx-3">
                 <p class="mt-2 font-medium">Mouse</p>
             </a>
         </div>
-        <div class="border-2 p-2 rounded-lg w-max mx-auto">
+        <div class="border-2 p-2 rounded-lg w-max mx-auto shadow-lg">
             <a href="../Products/products.php?category=Headset">
                 <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" alt="Headset" class="w-25 h-auto mx-3">
                 <p class="mt-2 font-medium">Headset</p>
@@ -120,8 +120,8 @@ include '../../Backend/session_start.php';
         <div class="grid ml-25 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <a href="../Products/products.php?category=Laptops">
-                <div class="bg-[#FFF7F7] flex justify-center p-6 pb-12">
-                    <img src="../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" alt="MSI Thin 15" class="h-40">
+                <div class="bg-blue-50 flex justify-center p-6 pb-12">
+                    <img src="../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" alt="MSI Thin 15" class="h-47">
                 </div>
                 <div class="bg-gray-100 p-2 text-left">
                     <p class="text-lg font-bold">₱ 73999.00</p>
@@ -131,8 +131,8 @@ include '../../Backend/session_start.php';
 
             <div class="border rounded-lg shadow-md overflow-hidden w-75">
                 <a href="../Products/products.php?category=Laptops">
-                <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-44">
+                <div class="bg-blue-50 flex justify-center p-6">
+                    <img src="../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" alt="Laptop" class="h-47">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold">₱ 45999.00</p>
@@ -142,8 +142,8 @@ include '../../Backend/session_start.php';
 
             <div class="border rounded-lg shadow-sm overflow-hidden w-75">
                 <a href="../Products/products.php?category=Mouse">
-                <div class="bg-pink-50 flex justify-center p-6">
-                    <img src="../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-40">
+                <div class="bg-blue-50 flex justify-center p-6">
+                    <img src="../../Resources/Images/Products/Mouse/Motospeed Darmoshark N1 Gaming Mouse Black.png" alt="Motospped Darmoshark Mouse" class="h-47">
                 </div>
                 <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 1999.00</p>
@@ -153,8 +153,8 @@ include '../../Backend/session_start.php';
 
               <div class="border rounded-lg shadow-md overflow-hidden w-75">
                   <a href="../Products/products.php?category=Headset">
-                  <div class="bg-pink-50 flex justify-center p-6">
-              <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" class="h-40 mx-auto mr-10">
+                  <div class="bg-blue-50 flex justify-center p-6">
+              <img src="../../Resources/Images/Products/Headset/Lenovo_Lecoo_HT403_USB_2.0_7.1_Channel_Surround_Stereo_Wired_Gaming_Headset__Black_-removebg-preview.png" class="h-47 mx-auto mr-10">
                 </div>
                     <div class="bg-gray-100 p-4 text-left">
                     <p class="text-lg font-bold pt-2">₱ 2499.00</p>
