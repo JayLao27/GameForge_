@@ -134,8 +134,8 @@ async function checkout() {
         } else {
             alert(data.message); // Show error message if checkout fails
         }
-    } catch (error) {
-        alert("Order successful!"); // Default message in case of an error
-        clearCart(); // Clear the cart even if there's a network issue
-    }
+    }catch (error) {
+            console.error("Checkout failed:", error); // Log actual error
+            alert("Checkout failed! Please try again.");
+        }
 }
