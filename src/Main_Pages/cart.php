@@ -23,12 +23,13 @@ $cart_json = json_encode($cart_items);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link href="../CSS/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="/Gameforge_/src/CSS/fonts.css">
+    <link rel="stylesheet" href="../src/CSS/fonts.css">
     <script src="../JS/cart.js" defer></script>
-    </head> 
+</head> 
 <body class="bg-gray-200" data-cart='<?php echo $cart_json; ?>'>
 
     <div class="max-w-7xl mx-auto mt-20 mb-20 p-6 bg-white shadow-lg rounded-lg">
+        <div id="messageContainer" class="mb-4"></div> <!-- Ensure this div is present -->
         <h1 class="text-2xl font-bold text-center mb-6">Your Cart</h1>
         
         <!-- Main container using Flexbox -->

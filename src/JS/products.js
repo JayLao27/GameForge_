@@ -1,13 +1,13 @@
 // Product Data
 let products = {
     "Laptops": [
-        { name: "ACER NITRO 5 AN515-57-584E GAMING LAPTOP (SHALE BLACK)", price: 35999, img: "../../Resources/Images/Products/Laptop/ACER_NITRO_5_AN515-57-584E_GAMING_LAPTOP__SHALE_BLACK_.png" },
-        { name: "Acer Predator Helios 300 PH315-55-76D8", price: 39999, img: "../../Resources/Images/Products/Laptop/Acer_Predator_Helios_300_PH315-55-76D8_165HZ_Gaming_Laptop__Abyssal_Black_.png" },
-        { name: "Asus ROG Strix G614JV-N4369W", price: 45999, img: "../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" },
-        { name: "Asus TUF Gaming F15 FX507VV-HQ275W", price: 54499, img: "../../Resources/Images/Products/Laptop/Asus_TUF_Gaming_F15_FX507VV-HQ275W_Gaming_Laptop-.png" },
-        { name: "Gigabyte G5 KF5-H3PH383SH", price: 54799, img: "../../Resources/Images/Products/Laptop/Gigabyte_G5_KF5-H3PH383SH_Gaming_Laptop_.png" },
-        { name: "MSI Katana A15 AI B8VE-601PH", price: 65299, img: "../../Resources/Images/Products/Laptop/MSI_Katana_A15_AI_B8VE-601PH_Gaming_Laptop__Black_.png" },
-        { name: "MSI Thin 15 B13UCX-2058PH", price: 73999, img: "../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" }
+        { name: "ACER NITRO 5 AN515-57-584E GAMING Laptop (SHALE BLACK)", price: 35999, img: "../../Resources/Images/Products/Laptop/ACER_NITRO_5_AN515-57-584E_GAMING_LAPTOP__SHALE_BLACK_.png" },
+        { name: "Acer Predator Helios 300 PH315-55-76D8 Laptop", price: 39999, img: "../../Resources/Images/Products/Laptop/Acer_Predator_Helios_300_PH315-55-76D8_165HZ_Gaming_Laptop__Abyssal_Black_.png" },
+        { name: "Asus ROG Strix G614JV-N4369W Laptop", price: 45999, img: "../../Resources/Images/Products/Laptop/Asus_ROG_Strix_G614JV-N4369W_Gaming_Laptop__Eclipse_Gray_.png" },
+        { name: "Asus TUF Gaming F15 FX507VV-HQ275W Laptop", price: 54499, img: "../../Resources/Images/Products/Laptop/Asus_TUF_Gaming_F15_FX507VV-HQ275W_Gaming_Laptop-.png" },
+        { name: "Gigabyte G5 KF5-H3PH383SH Laptop", price: 54799, img: "../../Resources/Images/Products/Laptop/Gigabyte_G5_KF5-H3PH383SH_Gaming_Laptop_.png" },
+        { name: "MSI Katana A15 AI B8VE-601PH Laptop", price: 65299, img: "../../Resources/Images/Products/Laptop/MSI_Katana_A15_AI_B8VE-601PH_Gaming_Laptop__Black_.png" },
+        { name: "MSI Thin 15 B13UCX-2058PH Laptop", price: 73999, img: "../../Resources/Images/Products/Laptop/MSI_Thin_15_B13UCX-2058PH_Gaming_Laptop__Cosmos_Grey_.png" }
     ],
     "Mouse": [
         { name: "Motospeed V90 Gaming Mouse Black", price: 2999, img: "../../Resources/Images/Products/Mouse/Motospeed V90 Gaming Mouse Black.png" },
@@ -77,7 +77,7 @@ function renderProducts(category = "", filterText = "") {
                         <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-contain mb-2">
                         <p class="text-lg font-bold">₱ ${product.price.toFixed(1)}</p>
                         <p class="text-m font-bold text-gray-600">${product.name}</p>
-                        <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                        <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:text-black hover:bg-[#FBFF10] transition-all duration-700 ease-in-out" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
                     `;
                     productGrid.appendChild(productCard);
                 });
